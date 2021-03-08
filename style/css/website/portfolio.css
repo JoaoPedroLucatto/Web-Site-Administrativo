@@ -1,0 +1,117 @@
+
+
+/* CUSTOM CSS - WEBSITE PORTFOLIO */
+
+div.portfoliolist {
+	width: 100%;
+	margin-top: 50px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+
+div.portfoliolist > div.item {
+	position: relative;
+	width: calc(25% - 24px);
+	height: calc(25vw - 24px);
+	margin: 12px;
+	cursor: pointer;
+	border-radius: 2px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-color: rgba(0, 0, 0, 0.3);
+	transition: 0.2s;
+	animation: show_sofly 0.4s;
+}
+
+
+div.portfoliolist > div.item:hover {
+	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
+	transition: 0.2s;
+}
+
+
+div.portfoliolist > div.item > iframe {
+	border: none;
+	width: 100%;
+	height: 100%;
+}
+
+
+div.portfoliolist > div.item > div.informations {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+	border-radius: 2px;
+	opacity: 0;
+	transition: 0.2s;
+	text-align: center;
+	padding: 20% 20px;
+}
+
+
+div.portfoliolist > div.item:hover > div.informations {
+	opacity: 1;
+	transition: 0.2s;
+}
+
+
+div.portfoliolist > div.item > div.informations > span.title {
+	display: block;
+	width: 100%;
+	font-size: 22px;
+	color: rgba(255, 255, 255, 0.9);
+	margin-bottom: 12px;
+}
+
+
+div.portfoliolist > div.item > div.informations > span.subtitle {
+	display: block;
+	width: 100%;
+	font-size: 15px;
+	color: rgba(255, 255, 255, 0.9);
+	margin-top: 4px;
+}
+
+
+div.portfoliolist ~ div.show-more {
+	padding-top: 60px;
+	text-align: center;
+}
+
+
+div.portfoliolist ~ div.show-more > span {
+	padding: 12px 18px;
+	text-transform: uppercase;
+	font-size: 12px;
+	background-color: #333;
+	color: #fff;
+	border-radius: 2px;
+	cursor: pointer;
+	opacity: 0.8;
+	transition: 0.2s;
+}
+
+
+div.portfoliolist ~ div.show-more > span:hover {
+	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
+	opacity: 1;
+	transition: 0.2s;
+}
+
+
+
+
+/* RESPONSIVIDADE */
+/* TELA PEQUENA */
+@media only screen and (max-width: 600px) {
+	div.portfoliolist > div.item {
+		width: calc(50% - 12px);
+		margin: 6px;
+		height: calc(50vw - 12px);
+	}
+}

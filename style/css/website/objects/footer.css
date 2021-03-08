@@ -1,0 +1,47 @@
+
+
+/* CUSTOM CSS - WEBSITE FOOTER */
+
+
+div.footer {
+	background-color: #272727;
+	padding: 10px 0px 0px !important;
+}
+
+
+div.footer img.logotipo {
+	width: 140px;
+	height: auto;
+}
+
+
+div.footer > div.developer {
+	background-color: #222;
+}
+
+
+div.footer > div.developer > span.title {
+	font-size: 12px;
+	text-align: left;
+	margin: 0px;
+	color: rgba(255, 255, 255, 0.4);
+}
+
+
+div.footer > div.developer > a.socialmedia {
+	float: right;
+	margin: -18px 8px 0px 8px;
+}
+
+
+div.footer > div.developer > a.socialmedia > img {
+	width: 16px;
+	opacity: 0.4;
+	transition: 0.2s;
+}
+
+
+div.footer > div.developer > a.socialmedia:hover > img {
+	opacity: 0.9;
+	transition: 0.2s;
+}

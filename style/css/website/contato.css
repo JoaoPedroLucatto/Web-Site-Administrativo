@@ -1,0 +1,124 @@
+
+
+/* CUSTOM CSS - WEBSITE CONTATO */
+
+
+
+div.contato button {
+	border: none;
+	border-radius: 2px;
+	padding: 8px 22px 8px 18px;
+	text-transform: uppercase;
+	font-size: 14px;
+	color: rgba(255, 255, 255, 1);
+	transition: 0.4s;
+	cursor: pointer;
+	opacity: 0.8;
+}
+
+
+div.contato button > img {
+	width: 16px;
+	vertical-align: middle;
+	margin-right: 6px;
+	margin-top: -3px;
+	opacity: 1;
+	transition: 0.4s;
+}
+
+
+div.contato button:hover, div.contato button:focus {
+	opacity: 1;
+	transition: 0.4s;
+}
+
+
+div.contato button:hover > img, div.contato button:focus > img {
+	opacity: 0.9;
+	transition: 0.4s;
+}
+
+
+
+
+div.contato div.socialmedia {
+	text-align: right;
+}
+
+
+div.contato div.socialmedia > a {
+	padding: 6px 6px 4px 6px;
+	border-radius: 2px;
+	display: inline-block;
+	margin: 8px 12px;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+	transition: 0.2s;
+}
+
+
+div.contato div.socialmedia > a:hover {
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.2);
+	transition: 0.2s;
+}
+
+
+div.contato div.socialmedia > a > img {
+	width: 20px;
+	vertical-align: text-bottom;
+}
+
+
+div.contato div.socialmedia > a.whatsapp {
+	background-color: #25d366;
+}
+
+
+div.contato div.socialmedia > a.instagram {
+	background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+
+div.contato div.socialmedia > a.facebook {
+	background-color: #3b5998;
+}
+
+
+div.contato div.socialmedia > a.twitter {
+	background-color: #08a0e9;
+}
+
+
+div.contato div.socialmedia > a.youtube {
+	background-color: #ef1a19;
+}
+
+
+div.contato div.socialmedia > a.skype {
+	background-color: #00aff0;
+}
+
+
+div.contato div.socialmedia > a.linkedin {
+	background-color: #0e76a8;
+}
+
+
+div.contato div.socialmedia > a.googleplus {
+	background-color: #db4437;
+}
+
+
+
+/* RESPONSIVIDADE */
+/* TELA MEDIA */
+@media only screen and (max-width: 600px) {
+	div.contato div.socialmedia {
+		text-align: center;
+		margin-top: 20px;
+	}
+
+
+	div.contato div.socialmedia > a {
+		display: inline-block;
+	}
+}
