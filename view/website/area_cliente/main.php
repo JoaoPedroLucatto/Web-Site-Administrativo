@@ -1,5 +1,12 @@
 
 
+<?php
+	if (!isset($root_path)) {
+		header('location: ../../');
+	}
+?>
+
+
 <link rel="stylesheet" type="text/css" href="style/css/website/objects/content.css">
 <link rel="stylesheet" type="text/css" href="style/css/website/objects/modal.css">
 

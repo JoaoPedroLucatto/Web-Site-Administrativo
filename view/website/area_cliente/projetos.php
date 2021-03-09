@@ -1,5 +1,14 @@
 
 
+
+<?php
+	$select = "SELECT client.id, client.nome_completo FROM clientes client WHERE client.id = ".$_SESSION['cliente_id'];
+	$cliente = sqlQueries($conn, $select, true)[0];
+
+	$horario = date('H');
+	$saudacao = $horario >= 12 && $horario < 18 ? 'Boa tarde' : ($horario >= 0 && $horario < 12 ? 'Bom dia' : 'Boa noite');
+?>
+
 <link rel="stylesheet" type="text/css" href="style/css/website/area_cliente/projetos.css">
 <link rel="stylesheet" type="text/css" href="style/css/website/area_cliente/projetos_modal.css">
 <link rel="stylesheet" type="text/css" href="style/css/website/area_cliente/projetos_fullview.css">
@@ -10,7 +19,7 @@
 
 
 <div class="col s12 projetos">
-	<span class="cliente nome"> Olá, Reginaldo Savian Júnior</span>
+	<span class="cliente nome"> <?php echo "$saudacao, ".ucwords(strtolower($cliente['nome_completo'])); ?> </span>
 
 	<div class="projetoslist">
 		<div class="item" data-projetoid='1'>

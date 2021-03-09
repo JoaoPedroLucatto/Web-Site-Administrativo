@@ -1,4 +1,10 @@
 
+<?php
+    include_once 'model/connect.php';
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +19,7 @@
     <link rel="stylesheet" type="text/css" href="style/css/materialize-framework.css">
     <link rel="stylesheet" type="text/css" href="style/css/objects/fields.css">
     <link rel="stylesheet" type="text/css" href="style/css/objects/lightpick.css">
+    <link rel="stylesheet" type="text/css" href="style/css/objects/toast.css">
     
 
     <!-- JAVASCRIPT -->
@@ -24,17 +31,25 @@
     <script src="style/js/functions/field-mask.js"></script>
     <script src="style/js/objects/fields.js"></script>
     <script src="style/js/objects/loading.js"></script>
+    <script src="style/js/objects/toast.js"></script>
 </head>
 
 <body>
     <?php
         include_once 'view/objects/loading.php';
 
+        $root_path = true;
         $script = 'view/website/portfolio/main.php';
 
+
+        if (isset($_SESSION['usuario_id'])) {
+            $script = 'view/administrativo/main.php';
+        }
+
+        else if (isset($_SESSION['cliente_id'])) {
+            $script = 'view/website/area_cliente/main.php';
+        }
         
-
-
 
         include_once $script;
     ?>

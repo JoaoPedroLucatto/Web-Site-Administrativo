@@ -1,15 +1,27 @@
 <?php
+    date_default_timezone_set('America/Sao_Paulo');
+
+    session_start();
+    
+
+    //OCULTAR ERROS
+    error_reporting(0);
+    ini_set("display_errors", 0);
+    ini_set("display_startup_erros", 0);
+
+
 
     $host = "localhost";
-    $dbname = "foto";
-    $username = "will";
-    $password = "willroot";
+    $dbname = "projeto_fotografia";
+    $username = "root";
+    $password = "root";
 
     $conn = mysqli_connect($host, $username, $password, $dbname);
 
     if(!$conn){
-        die("Erro: " .mysqli_error($conn));
+        die("Não foi possível conectar-se ao banco de dados, contate do administrador do sistema para análise");
     }
+
 
     function sqlQueries($connect, $sql, $array_return){
         $query = mysqli_query($connect, $sql);
@@ -18,10 +30,10 @@
             $array_return = [];
 
             while($row = mysqli_fetch_assoc($query)){
-                $retorno [] = $row;
+                $array_return[] = $row;
             }
             
-            return $retorno = (empty($retorno) ? true : $retorno);
+            return $array_return;
         }
         else{
             return $query ? true : false;
