@@ -1,0 +1,39 @@
+
+
+/* CUSTOM CSS - WEBSITE CONTENT */
+
+body {
+	background-color: #f5f5f5;
+}
+
+
+
+div.slider-margin {
+	margin-top: 100vh;
+}
+
+
+
+div.sector {
+	padding: 60px 20px !important;
+}
+
+
+div.sector span.title {
+	font-size: 24px;
+	display: block;
+	width: 100%;
+	color: rgba(0, 0, 0, 0.8);
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+
+div.sector span.subtitle {
+	font-size: 18px;
+	display: block;
+	width: 100%;
+	color: rgba(0, 0, 0, 0.8);
+	text-align: center;
+	margin: 12px 0px;
+}
