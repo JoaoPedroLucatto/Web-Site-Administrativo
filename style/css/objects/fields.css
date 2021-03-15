@@ -1,0 +1,141 @@
+
+
+/* CUSTOM CSS - FIELDS */
+
+/* INPUT */
+div.inputbox {
+	margin-top: 10px;
+	position: relative;
+	padding: 15px 15px 10px 15px !important;
+}
+
+
+div.inputbox > input.browser-default {
+	display: block;
+	width: 100%;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 2px;
+	padding: 8px 10px 8px 10px;
+	transition: 0.2s;
+	background-color: #fff;
+}
+
+
+div.inputbox > input.browser-default ~ label {
+	position: absolute;
+	font-size: 15px;
+	top: 22px;
+	cursor: auto;
+	left: 22px;
+	background-color: transparent;
+	padding: 0px 4px;
+	color: rgba(0, 0, 0, 0.4);
+	transition: 0.2s;
+}
+
+
+div.inputbox > input.browser-default:focus ~ label,
+div.inputbox > input.browser-default:disabled ~ label,
+div.inputbox > input.browser-default.active ~ label {
+	font-size: 11px;
+	top: -2px;
+	left: 16px;
+	transition: 0.2s;
+}
+
+
+
+
+div.inputbox > input.browser-default:focus {
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+	border-color: #0288d1;
+	transition: 0.2s;
+}
+
+
+div.inputbox > input.browser-default:focus ~ label {
+	color: #0288d1;
+	transition: 0.2s;
+}
+
+
+
+
+/* TEXTAREA */
+div.textareabox {
+	margin-top: 10px;
+	position: relative;
+	padding: 15px 15px 10px 15px !important;
+}
+
+
+div.textareabox > textarea {
+	display: block;
+	width: 100%;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 2px;
+	padding: 8px 10px 8px 10px;
+	transition: 0.2s;
+	background-color: #fff;
+	resize: none;
+	height: 80px !important;
+}
+
+
+div.textareabox > textarea ~ label {
+	position: absolute;
+	font-size: 15px;
+	top: 22px;
+	cursor: auto;
+	left: 22px;
+	background-color: transparent;
+	padding: 0px 4px;
+	color: rgba(0, 0, 0, 0.4);
+	transition: 0.2s;
+}
+
+
+div.textareabox > textarea:focus ~ label,
+div.textareabox > textarea:disabled ~ label,
+div.textareabox > textarea.active ~ label {
+	font-size: 11px;
+	top: -2px;
+	left: 16px;
+	transition: 0.2s;
+}
+
+
+
+
+div.textareabox > textarea:focus {
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+	border-color: #0288d1;
+	transition: 0.2s;
+}
+
+
+div.textareabox > textarea:focus ~ label {
+	color: #0288d1;
+	transition: 0.2s;
+}
+
+
+/* SELECT */
+
+div.selectbox{
+	margin-top: 10px;
+	position: relative;
+	padding: 15px 15px 10px 15px !important;
+}
+
+
+div.selectbox > select{
+	height: 34px;
+	padding: 0px 0px 0px 10px;
+}
+
+
+/* RESPONSIVIDADE */
+@media (max-width: 600px) {
+	div.textareabox > textarea{ height: 45px !important;}
+}

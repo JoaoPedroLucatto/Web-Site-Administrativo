@@ -1,0 +1,66 @@
+
+.card{
+    background-color: whitesmoke !important;
+}
+
+.card-title{
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
+    padding: 24px 24px 15px 24px;
+}
+
+.card-title a{
+    cursor: default;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    color: #666; 
+    float: left;
+}
+
+.card-title a > img{
+    width: 18px;
+    opacity: 0.5;
+    vertical-align: sub;
+    margin-right: 10px;
+}
+
+
+/* DIV ATIVO */
+.card-conteudo{
+    width: 100%;
+    background-color: #cfd8dc;
+    margin-bottom: 20px;
+}
+
+.card-conteudo a{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    color: #666;
+    cursor: default;
+}
+
+.card-conteudo a > img{
+    width: 18px;
+    opacity: 0.7;
+    vertical-align: sub;
+    margin-right: 5px;
+}
+
+.ativos-resultado{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    float: right;
+    text-align: center;
+    padding-right: 10px;
+}
+
+.card-total{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    float: right;
+    padding-right: 9px;
+}
