@@ -1,0 +1,91 @@
+
+
+/* CUSTOM CSS - WEBSITE AREA DO CLIENTE - PROJETOS */
+
+
+div.projetos {
+	height: 100vh;
+	padding-top: 120px !important;
+}
+
+
+div.projetos > span.cliente {
+	font-size: 22px;
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+
+
+
+div.projetoslist {
+	width: 100%;
+	margin-top: 50px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+
+div.projetoslist > div.item {
+	position: relative;
+	width: calc(25% - 24px);
+	margin: 12px;
+	padding: 12px 16px;
+	background-color: #f9eac3;
+	border: 1px solid rgba(0, 0, 0, 0.05);
+	cursor: pointer;
+	border-radius: 8px;
+	transition: 0.2s;
+	animation: show_sofly 0.4s;
+}
+
+
+div.projetoslist > div.item:hover {
+	box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
+	transition: 0.2s;
+}
+
+
+
+div.projetoslist > div.item > span.title {
+	font-size: 18px;
+	display: block;
+	width: 100%;
+}
+
+
+div.projetoslist > div.item > span.title > img {
+	width: 24px;
+	vertical-align: sub;
+	margin-right: 8px;
+	opacity: 0.7;
+	padding: 2px;
+}
+
+
+
+
+/* RESPONSIVIDADE */
+/* TELA MEDIA */
+@media only screen and (max-width: 900px) {
+	div.projetos {
+		padding-top: 100px !important;
+	}
+
+
+	div.projetoslist > div.item {
+		width: calc(50% - 24px);
+		margin: 6px;
+	}
+}
+
+
+/* TELA PEQUENA */
+@media only screen and (max-width: 602px) {
+	div.projetoslist > div.item {
+		width: 100%;
+		margin: 6px;
+	}
+}
+
+
