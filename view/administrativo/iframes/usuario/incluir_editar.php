@@ -87,7 +87,6 @@ if ($_GET['trigger'] == 'edit') {
     </div>
 
 
-
     <div class="iframe-footer">
         <button type="submit" class="green darken-2 right save-form" name="action" value="<?php echo $action; ?>"> <img src="../../../../images/icons/check-white.png"> Salvar</button>
         <button type="button" class="red darken-2 left" name="backscreen" value="controlador.php"> <img src="../../../../images/icons/close-white.png"> Cancelar</button>

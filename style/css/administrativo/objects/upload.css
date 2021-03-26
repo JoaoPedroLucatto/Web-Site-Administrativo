@@ -12,7 +12,6 @@ div.upload-arquivo {
 
 div.upload-arquivo > label{
     padding: 10px 15px 10px 15px;
-    /* display: inline-flex;   */  
     align-items: center;
     background-color: #666;
     color:whitesmoke;

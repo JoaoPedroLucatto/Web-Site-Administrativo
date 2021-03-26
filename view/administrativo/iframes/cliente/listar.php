@@ -17,7 +17,6 @@
 		$array_return = true; 
 		$query = sqlQueries($conn, $sql, $array_return);
 
-
 			if (count($query) > 0) {
 		?>
 				<table class="striped highlight tablesorter">

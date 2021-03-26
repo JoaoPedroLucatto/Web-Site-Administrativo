@@ -134,7 +134,6 @@ div.selectbox > select{
 	padding: 0px 0px 0px 10px;
 }
 
-
 /* RESPONSIVIDADE */
 @media (max-width: 600px) {
 	div.textareabox > textarea{ height: 45px !important;}
