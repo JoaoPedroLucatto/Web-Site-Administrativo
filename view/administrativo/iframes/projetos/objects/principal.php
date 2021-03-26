@@ -1,4 +1,4 @@
-<form action="../../../../../controller/administrativo/iframes/projetos/incluir_editar.php" method="get">
+
 
     <div class="row">
         <div class="col s12 no-padding">
@@ -11,9 +11,9 @@
                 <div class="col s12 m10 l9 inputbox">
                     <input type="text" class="browser-default" maxlength="100" autocomplete="off" name="titulo" require value="<?php echo empty($listar['titulo']) ? '' : $listar['titulo']; ?>">
                     <label>Titulo</label>
-                </div>
+                </div> 
 
-                <div class="col s6 m5 l3 selectbox">
+                <div class="col s8 m5 l3 selectbox">
                     <select class="browser-default" name="statusregistro">
                         <option value="" disabled selected>Status Registros</option>
                         <?php
@@ -28,16 +28,19 @@
                                 $selected = $listar['id_statusregistro'] == $row_two['id'] ? 'selected' : '';
                                 echo "<option value='" . $row_two['id'] . "'$selected> " . $row_two['descricao'] . " </option>";
                             }
-                        } else {
+                        } 
+                        else {
                             echo '<option> Nenhum Status de Registro cadastrado... </option>';
                         }
+
                         ?>
                     </select>
                 </div>
 
-                <div class="col s6 m6 l4 offset-l1 offset-m1 upload-arquivo">
+                <div class="col s12 m6 l4 offset-l1 offset-m1 upload-arquivo">
                     <label for="arquivo"><img src="../../../../images/icons/file-upload-white.png">Upload</label>
-                    <input type="file" name="arquivo" id="arquivo">
+                    <input type="file" name="upload-imagem[]" id="arquivo" multiple="multiple" accept=".jpg, .jpeg, .png">
+                    <span class="num-img"></span>
                 </div>
 
                 <div class="col s12 textareabox">
@@ -47,4 +50,15 @@
             </div>
         </div>
     </div>
-</form>
+
+    <script>
+        $(document).ready(function(){
+
+            $('input:file').on('change', function(){
+
+                var inputSize = $(this)[0].files.length;
+                $('span.num-img').text(inputSize > 1 ? 'Selecionados: '+inputSize : 'Selecionado: '+inputSize);
+
+            });
+        });
+    </script>

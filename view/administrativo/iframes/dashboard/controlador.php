@@ -37,33 +37,36 @@
     </div>
 </div>
 <div class="row">
-    <div class="col s12 m6 l6">
+    <div class="col s6 m6 l6">
         <div class="card">
             <div class="card-title">
                 <a><img src="../../../../images/icons/groups_black.png">Clientes</a><span class="card-total"><?php echo $totalcliente?></span>
             </div>
             <div class="card-content">
-                <div class="card-conteudo">
+                <div class="card-conteudo green lighten-4">
                     <a><img src="../../../../images/icons/check-black.png">Liberados</a><label class="ativos-resultado"><?php echo $rowclienteAtivos['total']?></label>
                 </div>
-                <div class="card-conteudo">
+                <div class="card-conteudo red lighten-4">
                     <a><img src="../../../../images/icons/block-black.png">Inativos</a><label class="ativos-resultado"><?php echo $rowclienteInativos['total']?></label>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="col s12 m6 l6">
+    <div class="col s6 m6 l6">
         <div class="card">
             <div class="card-title">
-                <a><img src="../../../../images/icons/folder-black.png">Prejetos</a><span class="card-total"><?php echo $totalprojetos?></span>
+                <a><img src="../../../../images/icons/folder-black.png">Prejetos</a>
+                <span class="card-total"><?php echo $totalprojetos?></span>
             </div>
             <div class="card-content">
-                <div class="card-conteudo">
-                    <a><img src="../../../../images/icons/check-black.png">Liberados</a><label class="ativos-resultado"><?php echo $rowprojetosAtivos['total']?></label>
+                <div class="card-conteudo green lighten-4">
+                    <a><img src="../../../../images/icons/check-black.png">Liberados</a>
+                    <label class="ativos-resultado"><?php echo $rowprojetosAtivos['total']?></label>
                 </div>
-                <div class="card-conteudo">
-                    <a><img src="../../../../images/icons/block-black.png">Inativos</a><label class="ativos-resultado"><?php echo $rowprojetosInativos['total']?></label>
+                <div class="card-conteudo red lighten-4">
+                    <a><img src="../../../../images/icons/block-black.png">Inativos</a>
+                    <label class="ativos-resultado"><?php echo $rowprojetosInativos['total']?></label>
                 </div>
             </div>
         </div>

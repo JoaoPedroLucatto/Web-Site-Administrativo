@@ -1,35 +1,37 @@
 <?php
 $titulo = 'Novo Projeto';
 
-$continuarcadastrando = '';
+$sql = "SELECT c.id, c.nome_completo, c.login, r.descricao FROM foto.clientes c INNER JOIN foto.status_registros r ON c.id_statusregistro = r.id WHERE c.id_statusregistro = 1";
+$listar_clientes = sqlQueries($conn, $sql, true);
+
+/* print_r($listar_clientes); */
+
 $action = 'new';
 
 $campoid = 'hide';
-$camponomecompleto = 'l12 m12 s12';
 
 if ($_GET['trigger'] == 'edit') {
 
-    $sql = "SELECT * FROM clientes WHERE id = " . $_GET['row_id'][0];
-    $array_return = true;
-    $listar = sqlQueries($conn, $sql, $array_return)[0];
-
     $titulo = 'Editar Projeto';
 
-    $continuarcadastrando = 'hide';
+    $sql = "SELECT * FROM projetos p WHERE id=". $_GET['row_id'][0];
+    $listar = sqlQueries($conn, $sql, true)[0];
+
+    $sql = "SELECT c.id, C.nome_completo, C.login, sta.descricao FROM foto.clientes C  INNER JOIN projetos_clientes PC ON C.id = PC.id_cliente  INNER JOIN status_registros sta ON C.id_statusregistro = sta.id WHERE PC.id_projeto =" . $_GET['row_id'][0];
+    $listar_clientes = sqlQueries($conn, $sql, true);
+
+
     $action = $listar['id'];
 
-    //CASO SEJA EDIÇÃO, MOSTRA O ID E REDIMENSIONA OS DEMAIS
-    $campoid = '';
-    $camponomecompleto = 'l9 m8 s8';
 }
 ?>
 
 
-<form method="GET" action="../../../../controller/administrativo/iframes/prejetos/incluir_editar.php">
+<form enctype="multipart/form-data" method="POST" action="../../../../controller/administrativo/iframes/projetos/incluir_editar.php">
     <div class="row">
         <div class="s12">
             <div class="sub-header">
-                <a class="title-sub-header"><img src="../../../../images/icons/folder-black.png">Projetos</a>
+                <a class="title-sub-header"><img src="../../../../images/icons/folder-black.png"><?php echo $titulo?></a>
             </div>
         </div>
     </div>

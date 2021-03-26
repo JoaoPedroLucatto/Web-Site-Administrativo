@@ -20,6 +20,7 @@
 <script type="text/javascript" src="../../../../style/js/objects/fields.js"></script>
 <script type="text/javascripr" src="../../../../style/js/objects/loading.js"></script>
 <script type="text/javascript" src="../../../../style/js/administrativo/iframes/iframe.js"></script>
+<script type="text/javascript" src="../../../../style/js/administrativo/iframes/projetos/buscaContribuinte.js"></script>
 
 
 <?php

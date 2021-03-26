@@ -27,7 +27,7 @@ div.iframe-header img.actuator:hover { background-color: rgba(0, 0, 0, 0.1); tra
 
 
 /* CONTENT */
-div.iframe-content { height: calc(100vh - 61px - 55px); overflow: auto; margin: 40px 0px; animation: show_sofly 0.5s; padding: 10px 20px 10px 20px; position: relative; }
+div.iframe-content { height: calc(100vh -  130px - 55px); overflow: auto; margin: 40px 0px; animation: show_sofly 0.5s; padding: 10px 20px 10px 20px; position: relative; }
 div.iframe-content.without-footer { height: calc(100vh - 61px); margin: 61px 0px 0px 0px; }
 
 

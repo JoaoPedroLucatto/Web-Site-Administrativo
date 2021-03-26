@@ -1,39 +1,41 @@
-<?php
-$titulo = 'Novo Usuário';
 
-$action = 'new';
-
-$campoid = 'hide';
-$camponomecompleto = 'l12 m12 s12';
-
-if ($_GET['trigger'] == 'edit') {
-
-    $sql = "SELECT * FROM clientes WHERE id = " . $_GET['row_id'][0];
-    $array_return = true;
-    $listar = sqlQueries($conn, $sql, $array_return)[0];
-
-    $titulo = 'Editar Usuário';
-
-    $action = $listar['id'];
-
-    //CASO SEJA EDIÇÃO, MOSTRA O ID E REDIMENSIONA OS DEMAIS
-    $camponomecompleto = 'l9 m8 s8';
-}
-?>
-
-
-<div class="row">
-    <div class="col s12 no-padding">
-        <div class="col s12 m8 l8 inputbox">
-            <input type="text" class="browser-default" name="busca">
-            <label>Pesquisa de Cliente</label>
-        </div>
-
-        <div class="col s12 m8 l8">
-            <div class="col s12 m8 l8 resultbusca">
-                
-
+    <div class="row">
+        <div class="col s12 no-padding-left">
+            <div class="col s12 m8 l8 inputbox">
+                <input type="text" class="browser-default" name="busca" id="buscaCliente" autocomplete="off">
+                <label>Pesquisa de Cliente</label>
             </div>
         </div>
+        <div class="col s12">
+            <?php
+
+            foreach ($listar_clientes as $row) {
+
+            ?>
+                <div class="col l4 m6 s12 no-padding-left cardbox_root">
+                    <!-- <div class="col s12 cardbox" id="datalist"></div> -->
+                    <div class="col s12 cardbox">
+                        <span class="title"> <?php echo $row['nome_completo']; ?> </span>
+
+                        <div class="col l4 m5 s4 no-padding">
+                            <span class="field-title truncate">Login:</span>
+                            <span class="field-title truncate">Situação:</span>
+                        </div>
+
+                        <div class="col l6 m5 s6 no-padding">
+                            <span class="field truncate"> <?php echo $row['login']; ?> </span>
+                            <span class="field truncate"> <?php echo $row['descricao']; ?> </span>
+                        </div>
+
+
+                        <label class="checkbox">
+                            <input type="checkbox" name="row_id[]"  value="<?php echo $row['id'];?>">
+                            <span></span>
+                        </label>
+                    </div>
+                </div>
+            <?php
+            }
+            ?>
+        </div>
     </div>
-</div>

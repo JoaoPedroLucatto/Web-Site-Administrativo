@@ -10,7 +10,7 @@
     <div class="col s12 iframe-content">
         <div class="row">
             <div class="col s12 no-padding-vertical">
-                <span class="text"> Deseja confirmar a exclusão <?php echo count($_GET['row_id']) != 1 ? 'dos Usuários selecionados?' : 'do Usuário selecionado?'; ?></span>
+                <span class="text"> Deseja confirmar a exclusão <?php echo count($_GET['row_id']) != 1 ? 'dos Clientes selecionados?' : 'do Cliente selecionado?'; ?></span>
             </div>
 
             <div class="col s12">
@@ -19,7 +19,7 @@
 
                     $sql = "SELECT usu.id, usu.nome_completo, usu.login, statu.descricao FROM clientes usu INNER JOIN status_registros statu on statu.id = usu.id_statusregistro WHERE usu.id = $id";
                     $array_return = true;
-                    $row = sqlQueries($conn, $sql, $array_return);
+                    $row = sqlQueries($conn, $sql, $array_return)[0];
                 ?>
                     <div class="col l4 m6 s12 no-padding-left">
                         <div class="col s12 cardbox">

@@ -1,10 +1,10 @@
 
+
 <form method="GET" action="../../../../controller/administrativo/iframes/usuario/deletar.php">
-    <div class="iframe-header">
-        <div class="row">
-            <div class="col s12 no-padding-horizontal">
-                <span class="title"> <img src="../../../../images/icons/admin_panel_black.png"> Exclusão de Usuário </span>
-                <hr class="separator">
+    <div class="row">
+        <div class="s12">
+            <div class="sub-header">
+                <a class="title-sub-header"><img src="../../../../images/icons/admin_panel_black.png">Exclusão de Usuários</a>
             </div>
         </div>
     </div>
