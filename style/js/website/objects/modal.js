@@ -18,7 +18,7 @@ function setModal(data_modal, active) {
         $('body').css('overflow', 'hidden');
 
         $('div.modal-background[data-modal=' + data_modal + ']').addClass('active');
-        $('div.my-modal[data-modal=' + data_modal + ']').addClass('active');
+        $('div.my-modal[data-modal=' + data_modal + ']').addClass('active').find('input:eq(0)').focus();
     }
 
     else {

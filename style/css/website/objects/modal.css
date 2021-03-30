@@ -70,10 +70,11 @@ div.my-modal > span.title {
 
 div.my-modal > span.title > img.mymodal-close {
 	float: right;
-	width: 24px;
-	padding: 2px;
+	width: 28px;
+	padding: 4px;
 	border-radius: 100%;
 	opacity: 0.6;
+	margin-top: 2px;
 	cursor: pointer;
 	transition: 0.2s;
 }

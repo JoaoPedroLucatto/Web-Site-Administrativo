@@ -1,10 +1,9 @@
 <?php
 $titulo = 'Novo Projeto';
 
-$sql = "SELECT c.id, c.nome_completo, c.login, r.descricao FROM foto.clientes c INNER JOIN foto.status_registros r ON c.id_statusregistro = r.id WHERE c.id_statusregistro = 1";
+$sql = "SELECT c.id, c.nome_completo, c.login, r.descricao FROM clientes c INNER JOIN status_registros r ON c.id_statusregistro = r.id WHERE c.id_statusregistro = 1";
 $listar_clientes = sqlQueries($conn, $sql, true);
 
-/* print_r($listar_clientes); */
 
 $action = 'new';
 
@@ -17,7 +16,7 @@ if ($_GET['trigger'] == 'edit') {
     $sql = "SELECT * FROM projetos p WHERE id=". $_GET['row_id'][0];
     $listar = sqlQueries($conn, $sql, true)[0];
 
-    $sql = "SELECT c.id, C.nome_completo, C.login, sta.descricao FROM foto.clientes C  INNER JOIN projetos_clientes PC ON C.id = PC.id_cliente  INNER JOIN status_registros sta ON C.id_statusregistro = sta.id WHERE PC.id_projeto =" . $_GET['row_id'][0];
+    $sql = "SELECT c.id, C.nome_completo, C.login, sta.descricao FROM clientes C  INNER JOIN projetos_clientes PC ON C.id = PC.id_cliente  INNER JOIN status_registros sta ON C.id_statusregistro = sta.id WHERE PC.id_projeto =" . $_GET['row_id'][0];
     $listar_clientes = sqlQueries($conn, $sql, true);
 
 

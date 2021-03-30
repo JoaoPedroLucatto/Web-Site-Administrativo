@@ -22,26 +22,41 @@
 	<span class="cliente nome"> <?php echo "$saudacao, ".ucwords(strtolower($cliente['nome_completo'])); ?> </span>
 
 	<div class="projetoslist">
-		<div class="item" data-projetoid='1'>
-			<span class="title truncate">
-				<img src="images/icons/folder-black.png">
-				Projeto 1
-			</span>
-		</div>
+		<?php
+			$select = "SELECT 
+						proj.id, proj.titulo, proj.descricao
+						FROM projetos proj
+						LEFT JOIN projetos_clientes projclient
+							ON projclient.id_projeto = proj.id
+						WHERE 
+							projclient.id_cliente = {$_SESSION['cliente_id']}
+							AND proj.id_statusregistro IN (1)
+						ORDER BY 
+							proj.id ASC";
+			$projetos_array = sqlQueries($conn, $select, true);
 
-		<div class="item" data-projetoid='2'>
-			<span class="title truncate">
-				<img src="images/icons/folder-black.png">
-				Projeto 2
-			</span>
-		</div>
 
-		<div class="item" data-projetoid='3'>
-			<span class="title truncate">
-				<img src="images/icons/folder-black.png">
-				Projeto 3
-			</span>
-		</div>
+			if (count($projetos_array) > 0) {
+				foreach ($projetos_array as $projeto) {
+		?>
+					<div class="item" data-projetoid='<?php echo $projeto['id']; ?>'>
+						<span class="title truncate">
+							<img src="images/icons/folder-black.png">
+							<?php echo ucwords(strtolower($projeto['titulo'])); ?>
+						</span>
+					</div>
+		<?php
+				}
+			}
+
+			else {
+		?>
+				<div class="col s12 center">
+					<span class="vazio"> Nenhum Projeto encontrado para visualização... </span>
+				</div>
+		<?php
+			}
+		?>
 	</div>
 </div>
 
@@ -51,23 +66,22 @@
 
 <div class="my-modal lg" data-modal='projeto'>
     <span class="title">
-        #
+        <span class="value"> # </span>
+
         <img src="images/icons/close-black.png" class="mymodal-close">
+        
+        <a class="download-projetocompleto" href="#" download="#">
+        	<img src="images/icons/download-black.png" class="tooltipped" data-position='left' data-tooltip='Baixar projeto completo'>
+        </a>
     </span>
 
     <div class="content">
         <div class="row">
             <div class="col s12">
-                <span class="descricao value"> </span>
+                <span class="descricao value"> # </span>
             </div>
 
-            <div class="col s12 no-padding-horizontal fotoslist">
-            	<div class="item" data-imageurl='#url_imagem' style="background-image: url(#url_imagem)">
-            		<div class="tools">
-            			<a href="#url_imagem" download data-action='download'> <img src="images/icons/download-white.png"> </a>
-            		</div>
-            	</div>
-            </div>
+            <div class="col s12 no-padding-horizontal fotoslist"> </div>
         </div>
     </div>
 </div>

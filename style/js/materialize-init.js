@@ -10,8 +10,12 @@ $(document).ready(function() {
         interval: 5000
     });
 
-      /* TABS */
-      $('.tabs').tabs();
+    
+    
+    /* TABS */
+    $('.tabs').tabs();
+    $('.tooltipped').tooltip();
+
 
 
     //APLICA AS MÁSCARAS PARA CADA TIPO DE CAMPO

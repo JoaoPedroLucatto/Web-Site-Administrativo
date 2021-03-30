@@ -11,10 +11,10 @@
 
 
 
-    /* $host = "localhost";
-    $dbname = "projeto_fotografia";
-    $username = "root";
-    $password = "root"; */
+    // $host = "localhost";
+    // $dbname = "projeto_fotografia";
+    // $username = "root";
+    // $password = "root";
     $host = "localhost";
     $dbname = "foto";
     $username = "will";

@@ -9,7 +9,7 @@ $(document).ready(function() {
 
     setInterval(function() {
         setHeaderTheme();
-    }, 5550);
+    }, 500);
 
 
     let header = $('div.header');
