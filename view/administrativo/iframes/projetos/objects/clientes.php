@@ -5,8 +5,14 @@
                 <input type="text" class="browser-default" name="busca" id="buscaCliente" autocomplete="off">
                 <label>Pesquisa de Cliente</label>
             </div>
+            <div class="col s12 m4 l4 checkbox-exibir">
+                <label>
+                    <input type="checkbox" class="filled-in" name="exibir">
+                    <span>Exibir todos Clientes</span>
+                </label>
+            </div>
         </div>
-        <div class="col s12">
+        <div class="col s12 list-content">
             <?php
 
             foreach ($listar_clientes as $row) {
@@ -29,7 +35,18 @@
 
 
                         <label class="checkbox">
-                            <input type="checkbox" name="row_id[]"  value="<?php echo $row['id'];?>">
+                            <input type="checkbox" name="row_id[]" <?php 
+
+                                foreach($listar_clientes_projeto as $row_two){
+
+                                    if($row_two['id'] == $row['id']){
+
+                                        echo 'checked';
+                                        break;
+                                    }
+                                }
+                            
+                            ?> value="<?php echo $row['id'];?>">
                             <span></span>
                         </label>
                     </div>

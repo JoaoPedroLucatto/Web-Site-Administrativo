@@ -44,8 +44,100 @@ div.upload-arquivo > label:hover{
     transition: all ease .4s;
 }
 
-/* LOADING UPLOAD ARQUIVO */
+
+/* UPLOAD IMAGEM ESTILO WHATS */
+.imagembox{
+    width: 100%;
+    margin-top: 10px;
+    position: relative;
+}
 
 
+.imagem{
+    width: 263px;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
+
+.imagem > img{
+    width: 263px;
+    height: 150px;
+    border: 2px solid rgba(0, 0, 0, .2);
+    border-radius: 10px;
+    background-color: rgba(66, 66, 66, .5);
+    opacity: .6;
+    cursor: pointer;
+}
+
+
+/* TEXT IMAGEM */
+span.textbox{
+    position: absolute;
+    display: block;
+    width: 263px;
+    top: 50px;
+    color: white;
+    opacity: 0.5;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-align: center;
+    transition: all 0.5s ease;
+}
+
+
+span.textbox > img{
+    width: 30px;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.5s ease;
+}
+
+
+/* ICONE REMOVE IMAGEM */
+span.removeimg{
+    position: absolute;
+    display: block;
+    width: 263px;
+    top: 20px;
+}
+
+
+span.removeimg > img{
+    float: right;
+    width: 30px;
+    cursor: pointer;
+    margin-right: 10px;
+    opacity: .5;
+    transition: all .5s ease;
+}
+
+
+span.removeimg > img:hover{
+    transition: all .5s ease;
+    opacity: 1 ;
+}
+
+
+.imagem:hover > img,
+span.textbox:hover{
+    transition: all .5s ease;
+    opacity: 1;
+}
+
+
+/* RESPONSIVIDADE TELA PEQUENA */
+@media only screen and (max-width:350px){
+ 
+    .imagem,
+    .imagem > img,
+    span.textbox,
+    span.removeimg{
+        width: 200px !important;
+    }
+    
+}
 

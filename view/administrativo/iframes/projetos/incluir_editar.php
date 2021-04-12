@@ -1,7 +1,7 @@
 <?php
 $titulo = 'Novo Projeto';
 
-$sql = "SELECT c.id, c.nome_completo, c.login, r.descricao FROM clientes c INNER JOIN status_registros r ON c.id_statusregistro = r.id WHERE c.id_statusregistro = 1";
+$sql = "SELECT clients.id, clients.nome_completo, clients.login, statu.descricao FROM clientes clients LEFT JOIN status_registros statu ON clients.id_statusregistro = statu.id WHERE clients.id_statusregistro = 1";
 $listar_clientes = sqlQueries($conn, $sql, true);
 
 
@@ -16,8 +16,8 @@ if ($_GET['trigger'] == 'edit') {
     $sql = "SELECT * FROM projetos p WHERE id=". $_GET['row_id'][0];
     $listar = sqlQueries($conn, $sql, true)[0];
 
-    $sql = "SELECT c.id, C.nome_completo, C.login, sta.descricao FROM clientes C  INNER JOIN projetos_clientes PC ON C.id = PC.id_cliente  INNER JOIN status_registros sta ON C.id_statusregistro = sta.id WHERE PC.id_projeto =" . $_GET['row_id'][0];
-    $listar_clientes = sqlQueries($conn, $sql, true);
+    $sql = "SELECT clients.id, clients.nome_completo, clients.login, statu.descricao FROM clientes clients INNER JOIN projetos_clientes pro ON clients.id = pro.id_cliente LEFT JOIN status_registros statu ON clients.id_statusregistro = statu.id WHERE pro.id_projeto =" . $_GET['row_id'][0];
+    $listar_clientes_projeto = sqlQueries($conn, $sql, true);
 
 
     $action = $listar['id'];

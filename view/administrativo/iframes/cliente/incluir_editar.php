@@ -65,8 +65,8 @@ if ($_GET['trigger'] == 'edit') {
                 </div>
 
                 <div class="col s6 m3 l2 selectbox">
+                    <label>Statu Registro</label>
                     <select class="browser-default" name="statusregistro">
-                        <option value="" disabled selected>Status Registro</option>
                         <?php
 
                         $sql = "SELECT * FROM status_registros WHERE id !=3";

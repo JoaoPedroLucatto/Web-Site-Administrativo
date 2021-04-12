@@ -8,9 +8,8 @@ $(document).ready(function() {
         animationInput($(this));
     });
 
-
-
-	//INPUTS
+ 
+    //INPUTS
     //AO CLICAR NO LABEL DO INPUT, FOCA NO INPUT ACIMA
     $('div.inputbox > label').on('click', function() {
         $(this).closest('div.inputbox').find('input.browser-default').focus();

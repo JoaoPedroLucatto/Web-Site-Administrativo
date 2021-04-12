@@ -119,6 +119,28 @@
          return rmdir($dir);
     }
 
+    /* DELETE IMAMGEM DA PASTA */
+    function delIMG($diretorio){
+
+        $scan_dir=scandir($diretorio);
+        array_shift($scan_dir);
+        array_shift($scan_dir);
+
+        if(!$scan_dir){
+
+            return true;
+
+        }
+        else{
+
+            if(unlink("$diretorio$scan_dir[0]")){
+
+                return true;
+
+            }
+        }
+    }
+
 
       /* VERIFICA EXTENSÃO E ADICIONA A IMAGEM  */
     function uploadIMG($images, $extensoes_permitidas, $dir){

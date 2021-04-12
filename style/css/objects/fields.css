@@ -1,8 +1,11 @@
-
-
 /* CUSTOM CSS - FIELDS */
 
 /* INPUT */
+input:disabled{
+	cursor: not-allowed;
+}
+
+
 div.inputbox {
 	margin-top: 10px;
 	position: relative;
@@ -44,8 +47,6 @@ div.inputbox > input.browser-default.active ~ label {
 }
 
 
-
-
 div.inputbox > input.browser-default:focus {
 	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
 	border-color: #0288d1;
@@ -60,8 +61,12 @@ div.inputbox > input.browser-default:focus ~ label {
 
 
 
-
 /* TEXTAREA */
+textarea:disabled{
+	cursor: not-allowed;
+}
+
+
 div.textareabox {
 	margin-top: 10px;
 	position: relative;
@@ -105,8 +110,6 @@ div.textareabox > textarea.active ~ label {
 }
 
 
-
-
 div.textareabox > textarea:focus {
 	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
 	border-color: #0288d1;
@@ -120,19 +123,55 @@ div.textareabox > textarea:focus ~ label {
 }
 
 
-/* SELECT */
 
-div.selectbox{
-	margin-top: 10px;
+/* SELECT */
+div.selectbox {
+	position: relative;
+	padding: 10px 15px 10px 15px !important;
+}
+
+
+div.selectbox > select {
+	display: block;
+	width: 100%;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 2px;
+	padding: 8px 10px 8px 10px;
+	transition: 0.2s;
+	background-color: #fff;
+	resize: none;
+	height: 34px !important;
+}
+
+
+div.selectbox > select:focus {
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+	border-color: #0288d1;
+	transition: 0.2s;
+}
+
+
+div.selectbox > label {
+	color: #0288d1;
+	transition: 0.2s;
+}
+
+
+
+/* CHECKBOX */
+div.checkbox-exibir{
+	margin-top: 10;
 	position: relative;
 	padding: 15px 15px 10px 15px !important;
+	bottom: -5px;
 }
 
 
-div.selectbox > select{
-	height: 34px;
-	padding: 0px 0px 0px 10px;
+div.checkbox-exibir > label{
+	display: flex;
 }
+
+
 
 /* RESPONSIVIDADE */
 @media (max-width: 600px) {

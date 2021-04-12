@@ -27,7 +27,7 @@ div.iframe-header img.actuator:hover { background-color: rgba(0, 0, 0, 0.1); tra
 
 
 /* CONTENT */
-div.iframe-content { height: calc(100vh -  130px - 55px); overflow: auto; margin: 40px 0px; animation: show_sofly 0.5s; padding: 10px 20px 10px 20px; position: relative; }
+div.iframe-content { height: calc(100vh -  180px - 50px); overflow: auto; margin: 40px 0px; animation: show_sofly 0.5s; padding: 10px 20px 10px 20px; position: relative; }
 div.iframe-content.without-footer { height: calc(100vh - 61px); margin: 61px 0px 0px 0px; }
 
 
@@ -94,11 +94,8 @@ div.imagebox:hover div.tools { right: 0px; transition: 0.2s; }
 
 
 
-
-
-
 /* FOOTER */
-div.iframe-footer { position: absolute; bottom: 110px; left: 0; width: 100%; height: 32px; padding: 0px 24px 0px 10px; overflow: hidden; animation: show_sofly 0.8s; }
+div.iframe-footer { position: absolute; bottom: 95px; left: 0; width: 100%; height: 32px; padding: 0px 24px 0px 10px; overflow: hidden; animation: show_sofly 0.8s; }
 
 div.iframe-footer button { border: none; border-radius: 2px; padding: 8px 14px 8px 10px; text-transform: uppercase; height: 100%; font-size: 14px; 
 	color: rgba(255, 255, 255, 1); transition: 0.4s; cursor: pointer; opacity: 0.8; margin-left: 12px; }
@@ -114,6 +111,21 @@ div.iframe-footer button:disabled > img { opacity: 1; }
 
 
 
+
+
+/* LIST DENTRO DO IFRAME */
+.list-content{
+    width: 100%;
+    height: calc(80vh - 155px - 109px);
+    overflow: auto;
+}
+
+/* ESTILO DO SCROLLBAR */
+.list-content::-webkit-scrollbar-track { background-color: #fafafa; }
+.list-content::-webkit-scrollbar { height: 10px; width: 10px; background: #fafafa; }
+.list-content::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.4); }
+
+
 /* RESPONSIVIDADE */
 /* TELA MEDIA */
 @media only screen and (max-width: 600px) {
@@ -124,7 +136,6 @@ div.iframe-footer button:disabled > img { opacity: 1; }
 
 	div.iframe-content{margin: 0px 0px;}
 }
-
 
 
 

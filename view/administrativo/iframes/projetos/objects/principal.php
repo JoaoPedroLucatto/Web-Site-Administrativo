@@ -14,8 +14,8 @@
                 </div> 
 
                 <div class="col s8 m5 l3 selectbox">
+                    <label>Status Registro</label>
                     <select class="browser-default" name="statusregistro">
-                        <option value="" disabled selected>Status Registros</option>
                         <?php
 
                         $sql = "SELECT * FROM status_registros WHERE id !=3";
@@ -26,7 +26,7 @@
                         if (count($row2) > 0) {
                             foreach ($row2 as $row_two) {
                                 $selected = $listar['id_statusregistro'] == $row_two['id'] ? 'selected' : '';
-                                echo "<option value='" . $row_two['id'] . "'$selected> " . $row_two['descricao'] . " </option>";
+                                echo "<option value='" . $row_two['id'] . "'$selected>" . $row_two['descricao'] . " </option>";
                             }
                         } 
                         else {
