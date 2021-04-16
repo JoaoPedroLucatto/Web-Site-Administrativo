@@ -14,7 +14,7 @@ if($_POST['titulo'] && $_POST['row_id']){
     $raiz = '../../../../';
     $pasta = 'uploads/projetos/';
     
-    $extensoes_permitidas = array('.jpg', '.jpeg', '.png');
+    $extensoes_permitidas = array('jpg', 'jpeg', 'png');
 
     $titulo = strtoupper(removeAccent($_POST['titulo']));
     $status = $_POST['statusregistro'] ? $_POST['statusregistro'] : 1;

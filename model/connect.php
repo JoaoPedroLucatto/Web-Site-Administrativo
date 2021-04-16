@@ -120,24 +120,16 @@
     }
 
     /* DELETE IMAMGEM DA PASTA */
-    function delIMG($diretorio){
+    function delIMG($diretorio, $name_img){
 
-        $scan_dir=scandir($diretorio);
-        array_shift($scan_dir);
-        array_shift($scan_dir);
-
-        if(!$scan_dir){
+        if(unlink("$diretorio$name_img")){
 
             return true;
 
         }
         else{
 
-            if(unlink("$diretorio$scan_dir[0]")){
-
-                return true;
-
-            }
+            return true;
         }
     }
 
@@ -147,7 +139,7 @@
 
         for($i = 0; $i < count($images['type']); $i++){
 
-            $extensao = strrchr($images['name'][$i], '.');
+            $extensao = pathinfo($images['name'][$i], PATHINFO_EXTENSION);
 
             if(in_array($extensao, $extensoes_permitidas) === true){
 

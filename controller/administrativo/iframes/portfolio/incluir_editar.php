@@ -21,9 +21,9 @@
         $posicao_texto = $_POST['posicao_texto'];
 
 
-        $raiz = '../../../../';
-        $pasta = 'uploads/website/';
-        $extensoes_permitidas = array('.jpg', '.jpeg', '.png');
+        $diretorio ='../../../../uploads/website/';
+        $extensoes_permitidas = array('jpeg');
+        $extensao = pathinfo($imagem['name'][0], PATHINFO_EXTENSION);
 
         /*  NOVO CADASTRO SLIDER/PORTFÓLIO */
         if($action == 'new'){
@@ -33,32 +33,23 @@
 
                 if($_POST['statusregistro'] && $_POST['cor_texto'] && $_POST['posicao_texto'] && $imagem['size'][0] > 0){
 
-                    $sql = "INSERT INTO portfolio (titulo, cor_texto, posicao_texto, tipo_registro ,id_statusregistro) VALUES ('$titulo', $cor_texto, $posicao_texto, $tipo_registro ,$staturegistro)";
+                    $sql = "INSERT INTO portfolio (titulo, subtitulo_1, cor_texto, posicao_texto, tipo_registro ,id_statusregistro) VALUES ('$titulo', '$subtitulo_1', $cor_texto, $posicao_texto, $tipo_registro ,$staturegistro)";
                     $query = sqlQueries($conn, $sql, false);
 
                     if($query){
 
                         $ultimo_id = mysqli_insert_id($conn);
-                        $diretorio = "$raiz$pasta$ultimo_id".'/';
+                        $name_img = "slider_$ultimo_id.";
 
-                        if(mkdir($diretorio, 0755)){
+                        if(in_array($extensao, $extensoes_permitidas) === true  && move_uploaded_file($imagem['tmp_name'][0], $diretorio.$name_img.$extensao)){
 
-                            if(uploadIMG($imagem, $extensoes_permitidas, $diretorio)){
+                            $messageToast = "Slider Cadastrado";
+                            $statusToast = 1;
 
-                                $messageToast = "Slider Cadastrado";
-                                $statusToast = 1;
-
-                            }
-                            else{
-
-                                $messageToast = "Upload da Imagem";
-                                $statusToast = 2;
-
-                            }
                         }
                         else{
-
-                            $messageToast = "Diretório não criado, contate o suporte para análise";
+                            
+                            $messageToast = "Problema ao realizar o Upload da Imagem";
                             $statusToast = 3;
 
                         }
@@ -86,39 +77,33 @@
                     $query = sqlQueries($conn, $sql, false);
     
                     if($query){
-    
-                        $ultimo_id = mysqli_insert_id($conn);
-                        $diretorio = "$raiz$pasta$ultimo_id".'/';
-    
-                        if(mkdir($diretorio, 0755)){
 
-                            if($imagem['size'][0] > 0){
+                        if($imagem['size'][0] > 0){
 
-                                if(uploadIMG($imagem, $extensoes_permitidas, $diretorio)){
-    
-                                    $messageToast = "Portfólio Cadastrado";
-                                    $statusToast = 1;
-        
-                                }
-                                else{
-        
-                                    $messageToast = "Upload da Imagem";
-                                    $statusToast = 2;
-        
-                                }
-                            }
-                            else{
+                            $ultimo_id = mysqli_insert_id($conn);
+                            $name_img = "portfolio_$ultimo_id.";
+
+                            if(in_array($extensao, $extensoes_permitidas) === true  && move_uploaded_file($imagem['tmp_name'][0], $diretorio.$name_img.$extensao)){
 
                                 $messageToast = "Portfólio Cadastrado";
                                 $statusToast = 1;
+
+                            }
+                            else{
+                            
+                                $messageToast = "Problema ao realizar o Upload da Imagem";
+                                $statusToast = 3;
+
                             }
                         }
                         else{
-    
-                            $messageToast = "Diretório não criado, contate o suporte para análise";
-                            $statusToast = 3;
-    
+
+                            $messageToast = "Portfólio Alterado";
+                            $statusToast = 1;
+
                         }
+
+                        
                     }
                     else{
     
@@ -139,18 +124,18 @@
 
             if($tipo_registro == 1){
 
-                $sql = "UPDATE portfolio SET titulo = '$titulo', cor_texto = $cor_texto, posicao_texto = $posicao_texto, tipo_registro = $tipo_registro, id_statusregistro = $staturegistro WHERE id = $action";
+                $sql = "UPDATE portfolio SET titulo = '$titulo', subtitulo_1 = '$subtitulo_1' ,cor_texto = $cor_texto, posicao_texto = $posicao_texto, tipo_registro = $tipo_registro, id_statusregistro = $staturegistro WHERE id = $action";
                 $query = sqlQueries($conn, $sql, false);
 
                 if($query){
 
-                    $diretorio = "$raiz$pasta$action".'/';
+                    $name_img = "slider_$action.$extensao";
 
                     if($imagem['size'][0] > 0){
-                        
-                        if(delIMG($diretorio)){
+                    
+                        if(delIMG($diretorio, $name_img)){
 
-                            if(uploadIMG($imagem, $extensoes_permitidas, $diretorio)){
+                            if(in_array($extensao, $extensoes_permitidas) === true && move_uploaded_file($imagem['tmp_name'][0], $diretorio.$name_img)){
     
                                 $messageToast = "Slider Alterado";
                                 $statusToast = 1;
@@ -158,8 +143,8 @@
                             }
                             else{
     
-                                $messageToast = "Upload da Imagem";
-                                $statusToast = 2;
+                                $messageToast = "roblema ao substituir a imagem";
+                                $statusToast = 3;
     
                             }
                         }
@@ -172,12 +157,8 @@
                     }
                     else{
 
-                        if(delIMG($diretorio)){
-
-                            $messageToast = "Slider Alterado";
-                            $statusToast = 1;
-
-                        }
+                        $messageToast = "Slider Alterado";
+                        $statusToast = 1;
                     }
 
                 }
@@ -198,11 +179,11 @@
 
                     if($imagem['size'][0] > 0){
 
-                        $diretorio = "$raiz$pasta$action".'/';
+                        $name_img = "portfolio_$action.$extensao";
 
-                        if(delIMG($diretorio)){
+                        if(delIMG($diretorio, $name_img)){
 
-                            if(uploadIMG($imagem, $extensoes_permitidas, $diretorio)){
+                            if(in_array($extensao, $extensoes_permitidas) === true && move_uploaded_file($imagem['tmp_name'][0], $diretorio.$name_img)){
     
                                 $messageToast = "Portfólio Alterado";
                                 $statusToast = 1;
@@ -210,15 +191,15 @@
                             }
                             else{
     
-                                $messageToast = "Upload da Imagem";
-                                $statusToast = 2;
+                                $messageToast = "Problema ao substituir a imagem";
+                                $statusToast = 3;
     
                             }
                         }
                         else{
 
                             $messageToast = "Problema ao substituir a imagem existente, contate o suporte para análise";
-                            $statusToast = 9;
+                            $statusToast = 3;
 
                         }
                     }
@@ -248,5 +229,3 @@
     }
 
 header("location:../../../../view/administrativo/iframes/portfolio/controlador.php?messageToast=$messageToast&statusToast=$statusToast");
-
-?>

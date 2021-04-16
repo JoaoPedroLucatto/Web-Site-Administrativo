@@ -10,7 +10,6 @@ $(document).ready(function () {
 
             $('div.selectbox#cor_texto').removeClass('hide');
             $('div.selectbox#posicao_texto').removeClass('hide');
-            $('div.inputbox#subtitulo_1').addClass('hide');
             $('div.inputbox#subtitulo_2').addClass('hide');
             $('div.inputbox#link_video').addClass('hide');
 

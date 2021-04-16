@@ -130,14 +130,14 @@ if ($_GET['trigger'] == 'edit') {
         /* PREVIEW DA IMAGEM */
         $('input:file#upload').on('change', function() {
 
-            var extencoes = ['JPEG', 'JPG', 'PNG'];
+            var extencoes = ['JPEG'];
             var file = $(this)[0].files[0];
             var extencao_file = file.name.split('.').pop().toUpperCase();
             var fileReader = new FileReader();
 
             console.log(extencao_file);
 
-            if($.inArray(extencao_file, extencoes) > 0){
+            if($.inArray(extencao_file, extencoes) >= 0){
 
                 fileReader.onloadend = function() {
 
@@ -147,7 +147,7 @@ if ($_GET['trigger'] == 'edit') {
             }
             else{
 
-                window.parent.showToast(3,'Formato Permitidos: jpeg, jpg, png');
+                window.parent.showToast(3,'Formato Permitidos: jpeg');
             }
 
             fileReader.readAsDataURL(file);
