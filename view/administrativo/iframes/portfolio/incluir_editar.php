@@ -12,12 +12,11 @@ if ($_GET['trigger'] == 'edit') {
     $sql = "SELECT * FROM portfolio  WHERE id=" . $_GET['row_id'][0];
     $listar = sqlQueries($conn, $sql, true)[0];
 
-    $diretorio = '../../../../uploads/website/' . $_GET['row_id'][0] . '/';
-    $nome_img = scandir($diretorio);
-    array_shift($nome_img);
-    array_shift($nome_img);
-
     $action = $listar['id'];
+
+    $diretorio = '../../../../uploads/website/';
+    
+    $dir_imagem = $listar['tipo_registro'] == 1 ? "$diretorio"."slider_".$_GET['row_id'][0].".jpeg" : "$diretorio"."portfolio_".$_GET['row_id'][0].".jpeg";
 }
 ?>
 
@@ -108,11 +107,11 @@ if ($_GET['trigger'] == 'edit') {
                     </div>
                     <div class="col s12 imagembox" id="upload_imagem">
                         <div class="imagem" id="teste">
-                            <img id="preview" class="img" <?php echo $nome_img[0] != null ? "src=$diretorio$nome_img[0]" : ''; ?>>
+                            <img id="preview" class="img" <?php echo file_exists($dir_imagem) ? "src=$dir_imagem" : ''; ?>>
                             <span class="textbox"><img src="../../../../images/icons/photo_camera_white.png">Inserir / Editar Foto</span>
                             <span class="removeimg"><img src="../../../../images/icons/close-white.png"></span>
                         </div>                        
-                        <input type="file" name="upload-imagem[]" id="upload" accept=".jpg, .jpeg, .png" <?php echo $listar['link_video'] ? 'disabled' : ''; ?>>
+                        <input type="file" name="upload-imagem[]" id="upload" accept=".jpeg" <?php echo $listar['link_video'] ? 'disabled' : ''; ?>>
                     </div>
                 </div>
             </div>
@@ -135,15 +134,13 @@ if ($_GET['trigger'] == 'edit') {
             var extencao_file = file.name.split('.').pop().toUpperCase();
             var fileReader = new FileReader();
 
-            console.log(extencao_file);
-
             if($.inArray(extencao_file, extencoes) >= 0){
 
                 fileReader.onloadend = function() {
 
                     $('img#preview').attr('src', fileReader.result);
 
-                }
+                }           
             }
             else{
 
@@ -171,6 +168,7 @@ if ($_GET['trigger'] == 'edit') {
         $('span.removeimg > img').on('click', function(){
 
             $('img#preview').removeAttr('src');
+            $('input[name="link_video"]').prop('disabled', false);
 
         });
 

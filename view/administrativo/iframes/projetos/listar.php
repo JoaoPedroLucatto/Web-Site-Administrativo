@@ -13,7 +13,7 @@
 	<div class="col s12 iframe-content">
 		<?php
 
-		$sql = "SELECT id, titulo, datahorainclusao FROM projetos WHERE id_statusregistro IN (1, 2) ORDER BY id_statusregistro";
+		$sql = "SELECT pro.id, pro.titulo, pro.datahorainclusao FROM projetos pro WHERE id_statusregistro IN (1, 2) ORDER BY id_statusregistro";
 		$array_return = true; 
 		$query = sqlQueries($conn, $sql, $array_return);
 		$count = (empty($query) ? 0 : count($query));

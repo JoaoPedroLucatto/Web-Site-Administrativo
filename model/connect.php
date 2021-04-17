@@ -122,14 +122,10 @@
     /* DELETE IMAMGEM DA PASTA */
     function delIMG($diretorio, $name_img){
 
-        if(unlink("$diretorio$name_img")){
+        if(file_exists("$diretorio$name_img")){
 
-            return true;
+            unlink("$diretorio$name_img");
 
-        }
-        else{
-
-            return true;
         }
     }
 

@@ -129,11 +129,10 @@
 
                 if($query){
 
-                    $name_img = "slider_$action.$extensao";
-
                     if($imagem['size'][0] > 0){
-                    
-                        if(delIMG($diretorio, $name_img)){
+
+                        $name_img = "slider_$action.$extensao";
+                        delIMG($diretorio, $name_img);
 
                             if(in_array($extensao, $extensoes_permitidas) === true && move_uploaded_file($imagem['tmp_name'][0], $diretorio.$name_img)){
     
@@ -143,17 +142,10 @@
                             }
                             else{
     
-                                $messageToast = "roblema ao substituir a imagem";
+                                $messageToast = "Problema ao substituir a imagem existente, contate o suporte para análise";
                                 $statusToast = 3;
     
                             }
-                        }
-                        else{
-
-                            $messageToast = "Problema ao substituir a imagem existente, contate o suporte para análise";
-                            $statusToast = 9;
-
-                        }
                     }
                     else{
 
@@ -177,11 +169,11 @@
 
                 if($query){
 
+                    $name_img = "portfolio_$action.jpeg";
+
                     if($imagem['size'][0] > 0){
 
-                        $name_img = "portfolio_$action.$extensao";
-
-                        if(delIMG($diretorio, $name_img)){
+                        delIMG($diretorio, $name_img);
 
                             if(in_array($extensao, $extensoes_permitidas) === true && move_uploaded_file($imagem['tmp_name'][0], $diretorio.$name_img)){
     
@@ -195,17 +187,11 @@
                                 $statusToast = 3;
     
                             }
-                        }
-                        else{
-
-                            $messageToast = "Problema ao substituir a imagem existente, contate o suporte para análise";
-                            $statusToast = 3;
-
-                        }
                     }
                     else{
 
-                        $messageToast = "Portfólio Alterado";
+                        delIMG($diretorio, $name_img);
+                        $messageToast = "Portfólio ssss";
                         $statusToast = 1;
 
                     }
