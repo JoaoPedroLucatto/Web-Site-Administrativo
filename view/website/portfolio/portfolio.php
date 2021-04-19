@@ -1,5 +1,13 @@
 
 
+
+<?php
+
+    $select = "SELECT port.id, port.titulo, port.subtitulo_1, port.subtitulo_2, port.link_video FROM portfolio port WHERE port.tipo_registro IN (2) AND port.id_statusregistro IN (1) ORDER BY port.id ASC";
+    $portfolio_array = sqlQueries($conn, $select, true);
+?>
+
+
 <link rel="stylesheet" type="text/css" href="style/css/website/portfolio.css">
 <script type="text/javascript" src="style/js/website/portfolio.js"></script>
 
@@ -9,127 +17,39 @@
     <span class="subtitle"> Conheça um pouco de meu trabalho em alguns projetos realizados com outros clientes! </span>
 
     <div class="portfoliolist">
-        <div class="item" style="background-image: url(http://lorempixel.com/580/250/nature/1);">
-            <div class='informations'>
-                <span class='title'> Meu Titulo </span>
-                <span class='subtitle'> Meu Subtitulo </span>
-                <span class='subtitle'> Meu Subtitulo 2 </span>
-            </div>
-        </div>
+        
+        <?php
 
-        <div class="item" style="background-image: url(http://lorempixel.com/580/250/nature/1);">
-            <div class='informations'>
-                <span class='title'> Meu Titulo </span>
-                <span class='subtitle'> Meu Subtitulo </span>
-                <span class='subtitle'> Meu Subtitulo 2 </span>
-            </div>
-        </div>
+            foreach ($portfolio_array as $portfolio) {
+                $html_item = "";
 
-        <div class="item" style="background-image: url(http://lorempixel.com/580/250/nature/1);">
-            <div class='informations'>
-                <span class='title'> Meu Titulo </span>
-                <span class='subtitle'> Meu Subtitulo </span>
-            </div>
-        </div>
+                if (!empty($portfolio['link_video'])) {
+                    $html_item = "<div class='item hide'>
+                                    <iframe src='{$portfolio['link_video']}'> </iframe>
+                                </div>";
+                }
 
-        <div class="item" style="background-image: url(http://lorempixel.com/580/250/nature/1);">
-            <div class='informations'>
-                <span class='title'> Meu Titulo </span>
-                <span class='subtitle'> Meu Subtitulo </span>
-            </div>
-        </div>
+                else {
+                    $imagem_url = "uploads/website/portfolio_{$portfolio['id']}.jpeg";
 
-        <div class="item hide" style="background-image: url(http://lorempixel.com/580/250/nature/1);">
-            <div class='informations'>
-                <span class='title'> Meu Titulo </span>
-                <span class='subtitle'> Meu Subtitulo </span>
-            </div>
-        </div>
+                    $html_item = "<div class='item hide' style='background-image: url({$imagem_url});'>
+                                    <div class='informations'>
+                                        <span class='title'> {$portfolio['titulo']} </span>
+                                        <span class='subtitle'> {$portfolio['subtitulo_1']} </span>
+                                        <span class='subtitle'> {$portfolio['subtitulo_2']} </span>
+                                    </div>
+                                </div>";
+                }
 
-        <div class="item hide" style="background-image: url(http://lorempixel.com/580/250/nature/1);">
-            <div class='informations'>
-                <span class='title'> Meu Titulo </span>
-                <span class='subtitle'> Meu Subtitulo </span>
-            </div>
-        </div>
 
-        <div class="item hide" style="background-image: url(http://lorempixel.com/580/250/nature/1);">
-            <div class='informations'>
-                <span class='title'> Meu Titulo </span>
-                <span class='subtitle'> Meu Subtitulo </span>
-            </div>
-        </div>
+                echo $html_item;
+            }
 
-        <div class="item hide" style="background-image: url(http://lorempixel.com/580/250/nature/1);">
-            <div class='informations'>
-                <span class='title'> Meu Titulo </span>
-                <span class='subtitle'> Meu Subtitulo </span>
-            </div>
-        </div>
+        ?>
 
-        <div class="item hide" style="background-image: url(http://lorempixel.com/580/250/nature/1);">
-            <div class='informations'>
-                <span class='title'> Meu Titulo </span>
-                <span class='subtitle'> Meu Subtitulo </span>
-            </div>
-        </div>
-
-        <div class="item hide" style="background-image: url(http://lorempixel.com/580/250/nature/1);">
-            <div class='informations'>
-                <span class='title'> Meu Titulo </span>
-                <span class='subtitle'> Meu Subtitulo </span>
-            </div>
-        </div>
-
-        <div class="item hide" style="background-image: url(http://lorempixel.com/580/250/nature/1);">
-            <div class='informations'>
-                <span class='title'> Meu Titulo </span>
-                <span class='subtitle'> Meu Subtitulo </span>
-            </div>
-        </div>
-
-        <div class="item hide" style="background-image: url(http://lorempixel.com/580/250/nature/1);">
-            <div class='informations'>
-                <span class='title'> Meu Titulo </span>
-                <span class='subtitle'> Meu Subtitulo </span>
-            </div>
-        </div>
-
-        <div class="item hide" style="background-image: url(http://lorempixel.com/580/250/nature/1);">
-            <div class='informations'>
-                <span class='title'> Meu Titulo </span>
-                <span class='subtitle'> Meu Subtitulo </span>
-            </div>
-        </div>
-
-        <div class="item hide" style="background-image: url(http://lorempixel.com/580/250/nature/1);">
-            <div class='informations'>
-                <span class='title'> Meu Titulo </span>
-                <span class='subtitle'> Meu Subtitulo </span>
-            </div>
-        </div>
-
-        <div class="item hide" style="background-image: url(http://lorempixel.com/580/250/nature/1);">
-            <div class='informations'>
-                <span class='title'> Meu Titulo </span>
-                <span class='subtitle'> Meu Subtitulo </span>
-            </div>
-        </div>
-
-        <div class="item hide">
-            <iframe src="https://www.youtube.com/embed/watch?v=Fn9adh4HWUU&list=RDEMKITLBk9680k7nmsKd8ITXQ"></iframe>
-        </div>
-
-        <div class="item hide">
-            <iframe src="https://www.youtube.com/embed/watch?v=Fn9adh4HWUU&list=RDEMKITLBk9680k7nmsKd8ITXQ"></iframe>
-        </div>
-
-        <div class="item hide">
-            <iframe src="https://www.youtube.com/embed/watch?v=Fn9adh4HWUU&list=RDEMKITLBk9680k7nmsKd8ITXQ"></iframe>
-        </div>
     </div>
 
-    <div class="col s12 show-more">
+    <div class="col s12 show-more hide">
         <span> Mostrar Mais </span>
     </div>
 </div>
