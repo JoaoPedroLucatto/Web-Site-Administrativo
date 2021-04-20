@@ -78,6 +78,6 @@
     }
 
     
-    /* header("location:../../../../view/administrativo/iframes/configuracoes/controlador.php?messageToast=$messageToast&statusToast=$statusToast"); */
+    header("location:../../../../view/administrativo/iframes/configuracoes/controlador.php?messageToast=$messageToast&statusToast=$statusToast");
 
 ?>

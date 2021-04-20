@@ -22,6 +22,7 @@
                 <li data-link="view/administrativo/iframes/usuario/controlador.php"><a href="#"><img src="images/icons/admin_panel_white.png">Usuários</li>
                 <li data-link="view/administrativo/iframes/projetos/controlador.php"><a href="#"><img src="images/icons/folder-white.png">Projetos</li>
                 <li data-link="view/administrativo/iframes/portfolio/controlador.php"><a href="#"><img src="images/icons/card_travel_white.png">Porfólio</a></li>
+                <li data-link="view/administrativo/iframes/contato/controlador.php"><a href="#"><img src="images/icons/money_white.png">Contato</a></li>
                 <li data-link="view/administrativo/iframes/configuracoes/controlador.php"><a href="#"><img src="images/icons/build_white.png">Configurações</a></li>
             </ul>
         </div>
