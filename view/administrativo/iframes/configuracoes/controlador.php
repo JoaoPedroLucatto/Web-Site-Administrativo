@@ -12,6 +12,7 @@
 <!-- JAVASCRIPT -->
 <script type="text/javascript" src="../../../../style/js/jquery.js"></script>
 <script type="text/javascript" src="../../../../style/js/jquery-ui.js"></script>
+<script type="text/javascript" src="../../../../style/js/functions/field-mask.js"></script>
 <script type="text/javascript" src="../../../../style/js/materialize-framework.js"></script>
 <script type="text/javascript" src="../../../../style/js/materialize-init.js"></script>
 <script type="text/javascript" src="../../../../style/js/moment.js"></script>
