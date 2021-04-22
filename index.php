@@ -1,6 +1,10 @@
 
 <?php
     include_once 'model/connect.php';
+
+
+    $select = "SELECT * FROM configuracoes LIMIT 1";
+    $config_array = sqlQueries($conn, $select, true)[0];
 ?>
 
 
@@ -8,7 +12,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title> Titulo (Buscar do banco de dados) </title>
+    <title> <?php echo !empty($config_array['nome_empresa']) ? $config_array['nome_empresa'] : "(NAO SETADO)"; ?> </title>
     <meta charset="utf-8">
 
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no" />

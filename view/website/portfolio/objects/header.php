@@ -1,5 +1,12 @@
 
 
+
+<?php
+	$logotipo = 'images/' . ( file_exists("images/logo.png") ? 'logo.png' : 'logo_default.png' );
+?>
+
+
+
 <link rel="stylesheet" type="text/css" href="style/css/website/objects/header.css">
 <link rel="stylesheet" type="text/css" href="style/css/website/objects/menu.css">
 
@@ -12,7 +19,7 @@
 <div class="col s12 header">
 	<div class="col l4 m12 s12 no-padding">
 		<img src="images/icons/sort-black.png" class="menu-trigger">
-		<img src="images/logo.png" class="logotipo">
+		<img src="<?php echo $logotipo; ?>" class="logotipo">
 	</div>
 
 	<div class="menu-background"> <!-- MENU BACKGROUND (TELA MÉDIA E PEQUENA) --> </div>

@@ -121,3 +121,11 @@ function adjustToast(element) {
         element.css(fixed_coordenate[small_screen], new_position).css(fixed_coordenate[!small_screen], 'unset');
     }
 }
+
+
+
+
+//CONTADOR DE TOASTS ABERTOS
+function openedToasts() {
+    return $('div.customtoast:not(.exit)').length;
+}
