@@ -13,9 +13,8 @@
 	<div class="col s12 iframe-content">
 		<?php
 
-		$sql = "SELECT * FROM website_conatato";
-		$array_return = true; 
-		$query = sqlQueries($conn, $sql, $array_return);
+		$sql = "SELECT * FROM website_contato"; 
+		$query = sqlQueries($conn, $sql, true);
 
 			if (count($query) > 0) {
 		?>
@@ -25,18 +24,18 @@
 							<th class="no-sort"> <label> <input type="checkbox" class="check-all"> <span></span> </label> </th>
 							<th data-column='1' class="hide-on-med-and-down">ID</th>
 							<th data-column='2'>Nome</th>
-							<th data-column='3' class="hide-on-med-and-down">Evento</th>
+							<th data-column='3'>Evento</th>
 						</tr>
 					</thead>
 					<tbody>
 		<?php
 					foreach($query as $listar){
 		?>
-							<tr>
+							<tr <?php echo (($listar['visto'] == '0') ? "style='background-color: #a5d6a7;'" : '');?>>
 							<td class="no-search"> <label> <input type="checkbox" name="row_id[]" class="check-table" value="<?php echo $listar['id']; ?>"> <span></span> </label> </td>
 							<td data-column='1' class="hide-on-med-and-down"> <?php echo $listar['id']; ?> </td>
 							<td data-column='2'> <?php echo $listar['nome']; ?> </td>
-							<td data-column='3' class="hide-on-med-and-down"> <?php echo $listar['evento']; ?> </td>
+							<td data-column='3'> <?php echo $listar['evento']; ?> </td>
 							</tr>
 		<?php
 					}
@@ -57,8 +56,7 @@
 	</div>
 
 
-	<div class="iframe-footer">
-		<button type="submit" class="red darken-2 right" name="trigger" value="delete" disabled> <img src="../../../../images/icons/delete_white.png"> Excluir</button>
+	<div class="iframe-footer">	
 		<button type="submit" class="blue darken-3 right" name="trigger" value="edit" disabled> <img src="../../../../images/icons/mode_edit_white.png"> Editar</button>
 	</div>
 </form>

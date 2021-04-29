@@ -39,14 +39,24 @@
 	
 				$text = "";
 	
-				$message = 'Novo Usuário cadastrado';
-				$status = 1;
+				if($row){
+
+					$messageToast = 'Novo Cliente cadastrado';
+					$statusToast = 1;
+
+				}
+				else{
+
+					$messageToast = 'Cliente não cadastrado';
+					$statusToast = 2;
+
+				}
 
 			}
 			else{
 				
-				$messageToast = 'Usuário já possui cadastro';
-				$statusregistro = 2; 
+				$messageToast = 'Cliente já possui cadastro';
+				$statusToast= 3; 
 		
 			}
 		}
@@ -58,11 +68,21 @@
 			$array_return = false;
 			$row = sqlQueries($conn, $sql, $array_return);
 			
-			$messageToast = $row;
-			$message = "Usuário atualizado";
-			$status = 1;
+			if($row){
+
+				$messageToast = "Cliente atualizado";
+				$statusToast = 1;
+
+			}
+			else{
+
+				$messageToast = "Cliente não atulizado";
+				$statusToast = 2;
+
+			}
+			
 		}
 	}
 
-	header("location: ../../../../view/administrativo/iframes/cliente/controlador.php?messageToast=$messageToast&statusToast=$statusToast&trigger=$continuarcadastrando");
+	header("location: ../../../../view/administrativo/iframes/cliente/controlador.php?messageToast=$messageToast&statusToast=$statusToast");
 ?>

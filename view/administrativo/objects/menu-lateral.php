@@ -15,7 +15,7 @@
             <img class="circle responsive-img" src="images/logo.png">
         </div>
 
-        <div class="menu-principal">
+        <div class="menu-principal" id="selected">
             <ul>
                 <li data-link="view/administrativo/iframes/dashboard/controlador.php"><a href="#"><img src="images/icons/dashboard_white.png">Painel</a></li>
                 <li data-link="view/administrativo/iframes/cliente/controlador.php"><a href="#"><img src="images/icons/person_add_white.png">Clientes</a></li>

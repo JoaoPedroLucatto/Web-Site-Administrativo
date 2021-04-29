@@ -14,6 +14,19 @@ $(document).ready(function() {
             $('.content').addClass('active');
 
         }
-    })
+    });
+
+
+    /* DEIXA SELECIONADO DE ACORDO COM O CLICK */
+    $('div.menu-principal ul > li').on('click', function(){
+
+        $('div.menu-principal ul > li').each(function(){
+
+            $(this).removeClass('menu-is-selected');
+
+        });
+
+        $(this).addClass('menu-is-selected');
+    });
 
 })

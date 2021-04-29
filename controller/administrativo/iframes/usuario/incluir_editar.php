@@ -38,14 +38,24 @@
 	
 				$text = "";
 	
-				$message = 'Novo Usuário cadastrado';
-				$status = 1;
+				if($row){
+					
+					$messageToast = 'Novo Usuário cadastrado';
+					$statusToast = 1;
+
+				}
+				else{
+
+					$messageToast = 'Usuário não cadastrado';
+					$statusToast = 2;
+
+				}
 
 			}
 			else{
 				
 				$messageToast = 'Usuário já possui cadastro';
-				$statusregistro = 2; 
+				$statusToast = 2; 
 		
 			}
 		}
@@ -58,12 +68,20 @@
 			$row = sqlQueries($conn, $sql, $array_return);
 			$text = "AND id != $action";
 			
-			$messageToast = $row;
-			$message = "Usuário atualizado";
-			$status = 1;
+			if($row){
+
+				$messageToast = "Usuário Atualizado";
+				$statusToast = 1;
+
+			}
+			else{
+
+				$messageToast = "Usuário não atulizado";
+				$statusToast = 2;
+
+			}
 		}
 	}
 
-	header("location: ../../../../view/administrativo/iframes/usuario/controlador.php?messageToast=$messageToast&statusToast=$statusToast&trigger=$continuarcadastrando");
-	/* header("location: ../../../../../../view/administrativo/iframes/usuario/controlador.php?messageToast=$messageToast&statusToast=$statusToast&trigger=$continuarcadastrando"); */
+	header("location: ../../../../view/administrativo/iframes/usuario/controlador.php?messageToast=$messageToast&statusToast=$statusToast");
 ?>

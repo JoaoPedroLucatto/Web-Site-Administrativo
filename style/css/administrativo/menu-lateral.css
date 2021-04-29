@@ -39,7 +39,6 @@
     left: 0px;
 }
 
-
 .menu-principal{
     margin-top: 20px;
 }
@@ -55,8 +54,9 @@
 }
 
 
-.menu-principal ul li:hover {
-    background-color: #455a64;
+.menu-principal ul li:hover,
+.menu-is-selected{
+    background-color: rgba(191, 194, 194, 0.2);
     transition-delay: 0.1s;
     border-left: 2px solid #eceff1;
     cursor: pointer;
