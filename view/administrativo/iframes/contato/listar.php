@@ -48,7 +48,7 @@
 			else {
 		?>
 				<div class="col s12 datatable-null">
-					<span>Nenhum contato foi encontrado...</span>
+					<span>Nenhum Contato foi encontrado...</span>
 				</div>
 		<?php
 			}

@@ -191,7 +191,7 @@
                     else{
 
                         delIMG($diretorio, $name_img);
-                        $messageToast = "Portfólio ssss";
+                        $messageToast = "Portfólio Alterado";
                         $statusToast = 1;
 
                     }

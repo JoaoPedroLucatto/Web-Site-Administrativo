@@ -29,8 +29,6 @@
     $extensao = pathinfo($imagem['name'][0], PATHINFO_EXTENSION);
     $extensao_permitidas = array('png');
 
-    printf($imagem['size'][0]);
-
 
     $sql = "UPDATE configuracoes SET nome_empresa = '$nome_empresa', nome_sobre = '$nome_sobre', texto_sobre = '$descri_sobre' , link_video_sobre = '$link_sobre', email = '$email_contato', end_logradouro = '$logradouro_contato', end_numero = '$numero_contato', end_bairro = '$bairro_contato', end_cidade = '$cidade_contato', telefone = '$telefone_contato', facebook = '$facebook' , instagram = '$instagram', linkedin = '$linkdin', whatsapp = '$whatsapp' WHERE id = 1";
     $query = sqlQueries($conn, $sql, false);

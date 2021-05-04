@@ -103,7 +103,7 @@ if ($_GET['trigger'] == 'edit') {
                 <div class="col s12 m6 l6 no-padding">
                     <div class="col s12 inputbox" id="link_video">
                         <input type="text" name="link_video" class="browser-default" autocomplete="off" maxlength="100" value="<?php echo $listar['link_video'] ? $listar['link_video'] : ''; ?>">
-                        <label>Link Vídeo</label>
+                        <label>ID Vídeo <img class="tooltipped" data-position="top" data-tooltip="Informe somente o ID. Exemplo: https://www.youtube.com/watch?v=(ID) " src="../../../../images/icons/help_outline_black.png" width="18px" style="vertical-align: text-bottom;" > </label>
                     </div>
                     <div class="col s12 imagembox" id="upload_imagem">
                         <div class="imagem" id="teste">

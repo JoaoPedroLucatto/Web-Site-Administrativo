@@ -50,7 +50,7 @@
 			else {
 		?>
 				<div class="col s12 datatable-null">
-					<span>Nenhum Usuário foi encontrado...</span>
+					<span>Nenhum Projeto foi encontrado...</span>
 				</div>
 		<?php
 			}

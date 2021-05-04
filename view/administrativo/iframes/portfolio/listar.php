@@ -51,7 +51,7 @@
 			else {
 		?>
 				<div class="col s12 datatable-null">
-					<span>Nenhum Usuário foi encontrado...</span>
+					<span>Nenhum Portfólio foi encontrado...</span>
 				</div>
 		<?php
 			}
