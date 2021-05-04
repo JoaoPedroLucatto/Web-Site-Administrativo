@@ -12,10 +12,11 @@
     		$video_sobre = false;
 
     		if (!empty($config_array['link_video_sobre'])) {
+                $iframe_url = 'https://www.youtube.com/embed/' . $config_array['link_video_sobre'];
     			$video_sobre = true;
     	?>
     			<div class="col l6 m12 s12">
-			        <iframe src="<?php echo $config_array['link_video_sobre']; ?>" class="video"></iframe>
+			        <iframe src="<?php echo $iframe_url; ?>" class="video"></iframe>
 			    </div>
     	<?php
     		}

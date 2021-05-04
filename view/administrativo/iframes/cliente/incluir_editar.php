@@ -65,7 +65,7 @@ if ($_GET['trigger'] == 'edit') {
                 </div>
 
                 <div class="col s6 m3 l2 selectbox">
-                    <label>Statu Registro</label>
+                    <label>Status Registro</label>
                     <select class="browser-default" name="statusregistro">
                         <?php
 

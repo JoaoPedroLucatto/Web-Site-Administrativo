@@ -14,7 +14,7 @@
 <div class="col s12 m6 l6">
     <div class="card">
         <div class="card-title">
-            <a><img src="../../../../images/icons/folder-black.png">Prejetos</a>
+            <a><img src="../../../../images/icons/folder-black.png">Projetos</a>
             <span class="card-total"><?php echo $totalprojetos ?></span>
         </div>
         <div class="card-content">

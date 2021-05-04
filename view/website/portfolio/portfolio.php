@@ -24,8 +24,10 @@
                 $html_item = "";
 
                 if (!empty($portfolio['link_video'])) {
+                    $iframe_url = 'https://www.youtube.com/embed/' . $portfolio['link_video'];
+
                     $html_item = "<div class='item hide'>
-                                    <iframe src='{$portfolio['link_video']}'> </iframe>
+                                    <iframe src='$iframe_url'> </iframe>
                                 </div>";
                 }
 
@@ -56,36 +58,38 @@
 
 
 
-<div class="col s12 sector">
-    <span class="title"> OQUE OS CLIENTES DIZEM? </span>
+<?php
 
-    <div class="col l4 m6 s12">
-        <span class="subtitle">
-            Texto do cliente 1
-        </span>
+    $select = "SELECT client.nome_completo, client.feedback 
+                FROM clientes client 
+                WHERE 
+                    client.id_statusregistro IN (1) 
+                    AND client.mostrar_feedback = true 
+                    AND LENGTH(client.feedback) > 0 
+                ORDER BY client.id ASC";
+    $feedbacks_array = sqlQueries($conn, $select, true);
 
-        <br>
+
+    if (count($feedbacks_array) > 0) {
+?>
         
-        <span class="subtitle"> <b> Nome Cliente 1 </b> </span>
-    </div>
+        <div class="col s12 sector">
+            <span class="title"> OQUE OS CLIENTES DIZEM? </span>
 
-    <div class="col l4 m6 s12">
-        <span class="subtitle">
-            Texto do Cliente 2
-        </span>
 
-        <br>
-        
-        <span class="subtitle"> <b> Nome Cliente 2 </b> </span>
-    </div>
+            <div class="col s12 feedback">
 
-    <div class="col l4 m6 s12">
-        <span class="subtitle">
-            Texto do Cliente 3
-        </span>
-
-        <br>
-        
-        <span class="subtitle"> <b> Nome Cliente 3 </b> </span>
-    </div>
-</div>
+<?php
+                foreach ($feedbacks_array as $feedback) {
+                    echo "<div class='item'>
+                            <span class='texto'> " . $feedback['feedback'] . " </span>
+                        
+                            <span class='cliente'> " . $feedback['nome_completo'] . " </span>
+                        </div>";
+                }
+?>
+            </div>
+        </div>
+<?php
+    }
+?>
