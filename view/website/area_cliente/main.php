@@ -19,6 +19,8 @@
         include_once 'objects/header.php';
         include_once 'projetos.php';
         include_once 'objects/footer.php';
+        
+        include_once 'feedback.php';
         include_once 'logoff.php';
     ?>
 </div>

@@ -9,6 +9,14 @@ $(document).ready(function() {
         let data_modal = $(this).closest('div.my-modal').attr('data-modal');
         setModal(data_modal, false);
     });
+
+
+
+    //ABRE O MODAL AO CLICAR NO GATILHO
+    $('[data-modaltrigger]').on('click', function() {
+        let modal_trigger = $(this);
+        setModal(modal_trigger.attr('data-modaltrigger'), true);
+    });
 });
 
 

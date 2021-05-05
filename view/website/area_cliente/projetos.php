@@ -2,7 +2,7 @@
 
 
 <?php
-	$select = "SELECT client.id, client.nome_completo FROM clientes client WHERE client.id = ".$_SESSION['cliente_id'];
+	$select = "SELECT client.id, client.nome_completo, client.feedback FROM clientes client WHERE client.id = ".$_SESSION['cliente_id'];
 	$cliente = sqlQueries($conn, $select, true)[0];
 
 	$horario = date('H');

@@ -18,6 +18,7 @@
 	<div class="menu-background"> <!-- MENU BACKGROUND (TELA MÉDIA E PEQUENA) --> </div>
 	
 	<div class="col l8 m12 s12 no-padding menu">
+		<a href="#feedback" class="item" data-modaltrigger='feedback'>Feedback</a>
 		<a href="#logoff" class="item">Sair</a>
 	</div>
 </div>
