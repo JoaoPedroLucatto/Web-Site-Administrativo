@@ -3,7 +3,7 @@
 
 <?php
 
-    $select = "SELECT port.id, port.titulo, port.subtitulo_1, port.subtitulo_2, port.link_video FROM portfolio port WHERE port.tipo_registro IN (2) AND port.id_statusregistro IN (1) ORDER BY port.id ASC";
+    $select = "SELECT port.id, port.titulo, port.subtitulo_1, port.subtitulo_2, port.link_video, port.extensao_img FROM portfolio port WHERE port.tipo_registro IN (2) AND port.id_statusregistro IN (1) ORDER BY port.id ASC";
     $portfolio_array = sqlQueries($conn, $select, true);
 ?>
 
@@ -32,7 +32,7 @@
                 }
 
                 else {
-                    $imagem_url = "uploads/website/portfolio_{$portfolio['id']}.jpeg";
+                    $imagem_url = "uploads/website/portfolio_{$portfolio['id']}.{$portfolio['extensao_img']}";
 
                     $html_item = "<div class='item hide' style='background-image: url({$imagem_url});'>
                                     <div class='informations'>

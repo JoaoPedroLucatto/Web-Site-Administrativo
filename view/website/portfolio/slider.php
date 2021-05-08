@@ -5,7 +5,7 @@
     $cortexto_array = ['white-text', 'black-text'];
     $posicaotexto_array = ['left-align', 'center-align', 'right-align'];
 
-    $select = "SELECT port.id, port.titulo, port.subtitulo_1, port.cor_texto, port.posicao_texto FROM portfolio port WHERE port.tipo_registro IN (1) AND port.id_statusregistro IN (1) ORDER BY port.id ASC";
+    $select = "SELECT port.id, port.titulo, port.subtitulo_1, port.cor_texto, port.posicao_texto, port.extensao_img FROM portfolio port WHERE port.tipo_registro IN (1) AND port.id_statusregistro IN (1) ORDER BY port.id ASC";
     $slider_array = sqlQueries($conn, $select, true);
 ?>
 
@@ -25,7 +25,7 @@
             }
 
 
-            $imagem_url = "uploads/website/slider_{$slider['id']}.jpeg";
+            $imagem_url = "uploads/website/slider_{$slider['id']}.{$slider['extensao_img']}";
 
 
             echo "<li {$li_properties}>
