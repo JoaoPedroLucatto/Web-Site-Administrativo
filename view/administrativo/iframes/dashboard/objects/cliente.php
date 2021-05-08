@@ -14,7 +14,7 @@
 <div class="col s12 m6 l6">
     <div class="card">
         <div class="card-title">
-            <a><img src="../../../../images/icons/groups_black.png">Clientes</a><span class="card-total"><?php echo $totalcliente ?></span>
+            <a data-link="view/administrativo/iframes/cliente/controlador.php"><img src="../../../../images/icons/groups_black.png">Clientes</a><span class="card-total"><?php echo $totalcliente ?></span>
         </div>
         <div class="card-content">
             <div class="card-conteudo green lighten-4">

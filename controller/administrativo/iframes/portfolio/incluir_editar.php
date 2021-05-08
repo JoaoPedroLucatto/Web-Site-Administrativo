@@ -22,8 +22,12 @@
 
 
         $diretorio ='../../../../uploads/website/';
-        $extensoes_permitidas = array('jpeg');
+        $extensoes_permitidas = array('jpeg', 'jpg');
         $extensao = pathinfo($imagem['name'][0], PATHINFO_EXTENSION);
+
+        
+        $sql = "SELECT extensao_img FROM portfolio WHERE id = $action";
+        $extensao_img = sqlQueries($conn, $sql, true)[0];
 
         /*  NOVO CADASTRO SLIDER/PORTFÓLIO */
         if($action == 'new'){
@@ -33,7 +37,7 @@
 
                 if($_POST['statusregistro'] && $_POST['cor_texto'] && $_POST['posicao_texto'] && $imagem['size'][0] > 0){
 
-                    $sql = "INSERT INTO portfolio (titulo, subtitulo_1, cor_texto, posicao_texto, tipo_registro ,id_statusregistro) VALUES ('$titulo', '$subtitulo_1', $cor_texto, $posicao_texto, $tipo_registro ,$staturegistro)";
+                    $sql = "INSERT INTO portfolio (titulo, subtitulo_1, cor_texto, posicao_texto, tipo_registro ,id_statusregistro, extensao_img) VALUES ('$titulo', '$subtitulo_1', $cor_texto, $posicao_texto, $tipo_registro ,$staturegistro, '$extensao')";
                     $query = sqlQueries($conn, $sql, false);
 
                     if($query){
@@ -73,7 +77,7 @@
 
                 if($imagem['size'][0] > 0 || $link != 'null'){
 
-                    $sql = "INSERT INTO portfolio (titulo, subtitulo_1, subtitulo_2, tipo_registro, id_statusregistro, link_video) VALUES ('$titulo', '$subtitulo_1', '$subtitulo_2', $tipo_registro, $staturegistro, '$link')";
+                    $sql = "INSERT INTO portfolio (titulo, subtitulo_1, subtitulo_2, tipo_registro, id_statusregistro, link_video, extensao_img) VALUES ('$titulo', '$subtitulo_1', '$subtitulo_2', $tipo_registro, $staturegistro, '$link', '$extesao_img')";
                     $query = sqlQueries($conn, $sql, false);
     
                     if($query){
@@ -124,17 +128,18 @@
 
             if($tipo_registro == 1){
 
-                $sql = "UPDATE portfolio SET titulo = '$titulo', subtitulo_1 = '$subtitulo_1' ,cor_texto = $cor_texto, posicao_texto = $posicao_texto, tipo_registro = $tipo_registro, id_statusregistro = $staturegistro WHERE id = $action";
+                $sql = "UPDATE portfolio SET titulo = '$titulo', subtitulo_1 = '$subtitulo_1' ,cor_texto = $cor_texto, posicao_texto = $posicao_texto, tipo_registro = $tipo_registro, id_statusregistro = $staturegistro, extensao_img = '$extensao' WHERE id = $action";
                 $query = sqlQueries($conn, $sql, false);
 
                 if($query){
 
                     if($imagem['size'][0] > 0){
 
-                        $name_img = "slider_$action.$extensao";
-                        delIMG($diretorio, $name_img);
+                        $name_img = "slider_$action.";
 
-                            if(in_array($extensao, $extensoes_permitidas) === true && move_uploaded_file($imagem['tmp_name'][0], $diretorio.$name_img)){
+                        delIMG($diretorio, $name_img.$extensao_img['extensao_img']);
+
+                            if(in_array($extensao, $extensoes_permitidas) === true && move_uploaded_file($imagem['tmp_name'][0], $diretorio.$name_img.$extensao)){
     
                                 $messageToast = "Slider Alterado";
                                 $statusToast = 1;
@@ -151,6 +156,7 @@
 
                         $messageToast = "Slider Alterado";
                         $statusToast = 1;
+
                     }
 
                 }
@@ -164,18 +170,19 @@
             /* ALTERAÇÃO DO PORTFÓLIO */
             else{
 
-                $sql = "UPDATE portfolio SET titulo = '$titulo', subtitulo_1 = '$subtitulo_1', subtitulo_2 = '$subtitulo_2', tipo_registro = $tipo_registro, id_statusregistro = $staturegistro, link_video = '$link' WHERE id = $action";
+                $sql = "UPDATE portfolio SET titulo = '$titulo', subtitulo_1 = '$subtitulo_1', subtitulo_2 = '$subtitulo_2', tipo_registro = $tipo_registro, id_statusregistro = $staturegistro, link_video = '$link', extensao_img = '$extensao' WHERE id = $action";
                 $query = sqlQueries($conn, $sql, false);
+
 
                 if($query){
 
-                    $name_img = "portfolio_$action.jpeg";
+                    $name_img = "portfolio_$action.";
 
                     if($imagem['size'][0] > 0){
 
-                        delIMG($diretorio, $name_img);
+                        delIMG($diretorio, $name_img.$extensao_img['extensao_img']);
 
-                            if(in_array($extensao, $extensoes_permitidas) === true && move_uploaded_file($imagem['tmp_name'][0], $diretorio.$name_img)){
+                            if(in_array($extensao, $extensoes_permitidas) === true && move_uploaded_file($imagem['tmp_name'][0], $diretorio.$name_img.$extensao)){
     
                                 $messageToast = "Portfólio Alterado";
                                 $statusToast = 1;
@@ -214,6 +221,6 @@
 
     }
 
-header("location:../../../../view/administrativo/iframes/portfolio/controlador.php?messageToast=$messageToast&statusToast=$statusToast");
+    header("location:../../../../view/administrativo/iframes/portfolio/controlador.php?messageToast=$messageToast&statusToast=$statusToast");
 
 ?>

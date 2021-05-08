@@ -13,7 +13,7 @@
 <div class="col s12 m6 l6">
     <div class="card">
         <div class="card-title">
-            <a><img src="../../../../images/icons/admin_panel_black.png">Usuários</a><span class="card-total"><?php echo $queryTotalUsuarios ?></span>
+            <a data-link="view/administrativo/iframes/usuario/controlador.php"><img src="../../../../images/icons/admin_panel_black.png">Usuários</a><span class="card-total"><?php echo $queryTotalUsuarios ?></span>
         </div>
         <div class="card-content">
             <div class="card-conteudo green lighten-4">

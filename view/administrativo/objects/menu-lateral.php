@@ -17,7 +17,7 @@
 
         <div class="menu-principal" id="selected">
             <ul>
-                <li data-link="view/administrativo/iframes/dashboard/controlador.php"><a href="#"><img src="images/icons/dashboard_white.png">Painel</a></li>
+                <li data-link="view/administrativo/iframes/dashboard/controlador.php" class="menu-is-selected"><a href="#"><img src="images/icons/dashboard_white.png">Painel</a></li>
                 <li data-link="view/administrativo/iframes/cliente/controlador.php"><a href="#"><img src="images/icons/person_add_white.png">Clientes</a></li>
                 <li data-link="view/administrativo/iframes/usuario/controlador.php"><a href="#"><img src="images/icons/admin_panel_white.png">Usuários</li>
                 <li data-link="view/administrativo/iframes/projetos/controlador.php"><a href="#"><img src="images/icons/folder-white.png">Projetos</li>

@@ -1,24 +1,16 @@
 /* MANIPULADO "SRC" DO IFRAMES */
 $(document).ready(function() {
-    $('.menu-principal > ul li').on('click', function(event){
+    
+    $('.menu-principal > ul li, .card-title > a').on('click', function(event){
         event.preventDefault();
 
         var link = $(this).data('link')
         var iframeSrc = $('.content #myiframe').attr('src');
-        
-        if(iframeSrc == ""){
 
-            $('.content #myiframe').attr('src', link);
+        window.parent.$('div#selected ul > li').removeClass('menu-is-selected');
 
-        }
-        else{
-
-            $('.content #myiframe').attr('src', "");
-            $('.content #myiframe').attr('src', link);
-
-        }
-
-        
-        
+        window.parent.$('.content #myiframe').attr('src', "");
+        window.parent.$('.content #myiframe').attr('src', link);
+                  
     })
 })

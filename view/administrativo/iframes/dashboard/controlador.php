@@ -4,7 +4,8 @@
 <link rel="stylesheet" href="../../../../style/css/materialize-framework.css">
 <link rel="stylesheet" href="../../../../style/css/administrativo/iframes/iframe.css">
 
-
+<script type="text/javascript" src="../../../../style/js/jquery.js"></script>
+<script type="text/javascript" src="../../../../style/js/administrativo/iframes/content.js"></script>
 
 <div class="row">
     <div class="s12">
@@ -24,6 +25,7 @@
             include_once 'objects/usuario.php';
             include_once 'objects/projetos.php';
             include_once 'objects/contato.php';
+            include_once 'objects/feedback.php';
 
         ?>    
         

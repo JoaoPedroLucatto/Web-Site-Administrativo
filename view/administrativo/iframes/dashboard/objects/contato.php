@@ -14,7 +14,7 @@
 <div class="col s12 m6 l6">
     <div class="card">
         <div class="card-title">
-            <a><img src="../../../../images/icons/money_black.png">Contatos</a><span class="card-total"><?php echo $queryTotalContato ?></span>
+            <a data-link="view/administrativo/iframes/contato/controlador.php"><img src="../../../../images/icons/money_black.png">Contatos</a><span class="card-total"><?php echo $queryTotalContato ?></span>
         </div>
         <div class="card-content">
             <div class="card-conteudo green lighten-4">

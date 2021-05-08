@@ -16,7 +16,8 @@ if ($_GET['trigger'] == 'edit') {
 
     $diretorio = '../../../../uploads/website/';
     
-    $dir_imagem = $listar['tipo_registro'] == 1 ? "$diretorio"."slider_".$_GET['row_id'][0].".jpeg" : "$diretorio"."portfolio_".$_GET['row_id'][0].".jpeg";
+    $dir_imagem = $listar['tipo_registro'] == 1 ? "$diretorio"."slider_".$_GET['row_id'][0].'.'.$listar['extensao_img'] : "$diretorio"."portfolio_".$_GET['row_id'][0].'.'.$listar['extensao_img'];
+
 }
 ?>
 
@@ -103,7 +104,7 @@ if ($_GET['trigger'] == 'edit') {
                 <div class="col s12 m6 l6 no-padding">
                     <div class="col s12 inputbox" id="link_video">
                         <input type="text" name="link_video" class="browser-default" autocomplete="off" maxlength="100" value="<?php echo $listar['link_video'] ? $listar['link_video'] : ''; ?>">
-                        <label>ID Vídeo <img class="tooltipped" data-position="top" data-tooltip="Informe somente o ID. Exemplo: https://www.youtube.com/watch?v=(ID) " src="../../../../images/icons/help_outline_black.png" width="18px" style="vertical-align: text-bottom;" > </label>
+                        <label>ID Vídeo <img class="tooltipped" data-position="top" data-tooltip="Informe somente o ID. Exemplo: https://www.youtube.com/watch?v=(ID) " src="../../../../images/icons/help_outline_black.png" width="13px" style="vertical-align: baseline;" > </label>
                     </div>
                     <div class="col s12 imagembox" id="upload_imagem">
                         <div class="imagem" id="teste">
@@ -111,7 +112,7 @@ if ($_GET['trigger'] == 'edit') {
                             <span class="textbox"><img src="../../../../images/icons/photo_camera_white.png">Inserir / Editar Foto</span>
                             <span class="removeimg"><img src="../../../../images/icons/close-white.png"></span>
                         </div>                        
-                        <input type="file" name="upload-imagem[]" id="upload" accept=".jpeg" <?php echo $listar['link_video'] ? 'disabled' : ''; ?>>
+                        <input type="file" name="upload-imagem[]" id="upload" accept=".jpeg, .jpg" <?php echo $listar['link_video'] ? 'disabled' : ''; ?>>
                     </div>
                 </div>
             </div>
@@ -129,7 +130,7 @@ if ($_GET['trigger'] == 'edit') {
         /* PREVIEW DA IMAGEM */
         $('input:file#upload').on('change', function() {
 
-            var extencoes = ['JPEG'];
+            var extencoes = ['JPEG', 'JPG'];
             var file = $(this)[0].files[0];
             var extencao_file = file.name.split('.').pop().toUpperCase();
             var fileReader = new FileReader();
@@ -144,7 +145,7 @@ if ($_GET['trigger'] == 'edit') {
             }
             else{
 
-                window.parent.showToast(3,'Formato Permitidos: jpeg');
+                window.parent.showToast(3,'Formato Permitidos: jpeg, jpg');
             }
 
             fileReader.readAsDataURL(file);
