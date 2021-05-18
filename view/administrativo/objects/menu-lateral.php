@@ -1,4 +1,11 @@
 
+
+<?php
+    $logotipo = 'images/' . ( file_exists("images/logo.png") ? 'logo.png' : 'logo_default.png' );
+?>
+
+
+
 <!-- CSS -->
 <link rel="stylesheet" href="style/css/administrativo/menu-lateral.css">
 
@@ -12,7 +19,7 @@
     </div>
     <div class="menu">
         <div class="logo">
-            <img class="circle responsive-img" src="images/logo.png">
+            <img class="circle responsive-img" src="<?php echo $logotipo; ?>">
         </div>
 
         <div class="menu-principal" id="selected">
