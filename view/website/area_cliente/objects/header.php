@@ -12,7 +12,7 @@
 <div class="col s12 header">
 	<div class="col l4 m12 s12 no-padding">
 		<img src="images/icons/sort-black.png" class="menu-trigger">
-		<img src="images/logo.png" class="logotipo">
+		<img src="<?php echo $logotipo; ?>" class="logotipo">
 	</div>
 
 	<div class="menu-background"> <!-- MENU BACKGROUND (TELA MÉDIA E PEQUENA) --> </div>
