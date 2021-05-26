@@ -21,7 +21,7 @@
                 <a><img src="../../../../images/icons/visibility_off_black.png">Novos Contatos</a><label class="ativos-resultado"><?php echo $queryContatoNew['total'] ?></label>
             </div>
             <div class="card-conteudo">
-                <a><img src="../../../../images/icons/visibility_black.png">Contato Vistos</a><label class="ativos-resultado"><?php echo $queryContato['total'] ?></label>
+                <a><img src="../../../../images/icons/visibility_black.png">Contatos Vistos</a><label class="ativos-resultado"><?php echo $queryContato['total'] ?></label>
             </div>
         </div>
     </div>

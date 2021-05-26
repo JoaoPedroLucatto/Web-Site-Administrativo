@@ -4,6 +4,7 @@ $sql = "SELECT * FROM configuracoes WHERE id = 1";
 $listar = sqlQueries($conn, $sql, true)[0];
 
 $img_logo = '../../../../images/logo.png';
+$img_logo_default = '../../../../images/logo_default.png';
 
 ?>
 

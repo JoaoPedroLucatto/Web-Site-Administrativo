@@ -12,7 +12,7 @@
     </div>
     <div class="menu">
         <div class="logo">
-            <img class="circle responsive-img" src="images/logo.png">
+            <img class="circle responsive-img" <?php echo file_exists("images/logo.png") ? 'src="images/logo.png"' : 'src="images/logo_default.png"'?>>
         </div>
 
         <div class="menu-principal" id="selected">

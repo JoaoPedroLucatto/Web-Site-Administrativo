@@ -4,6 +4,7 @@
 /* ---------- JAVASCRIPT IFRAME HEADER ---------- */
 
 $(document).ready(function() {
+ 
     //AO CLICAR EM UM BOTAO DO HEADER
     $('img.actuator:not(.internal)[data-actuator]').on('click', function() {
         let action = $(this).data('actuator');
@@ -121,6 +122,11 @@ function blockForm(blocked) {
 /* ---------- JAVASCRIPT IFRAME VERIFY FIELDS ---------- */
 
 $(document).ready(function() {
+
+    $(document).on('beforeunload', function() {
+        window.parent.showLoading(true);
+    });
+     
     //AO TROCAR O VALOR DE UM CAMPO, FAZ REQUISIÇÃO REALTIME NO BANCO (APENAS INPUTS QUE PERMITEM A BUSCA)
     $('input.browser-default[data-findcolumn]').on('change', function() {
         let input = $(this);
@@ -169,10 +175,24 @@ $(document).ready(function() {
         let button = $(this);
         let prosseguir = true;
 
+        
+        $(this).closest('form').find("input:checkbox[name='row_id[]']").each(function () {
+            let inputChecked = $(this);
+
+            if(inputChecked.is(':checked')){      
+
+                $('input#buscaCliente').removeAttr('required');
+                prossegui = false;
+                return false;
+
+            }
+       });
+        
+        
         $(this).closest('form').find('input:required').each(function() {
             let input = $(this);
-
-            if (input.attr('type') == 'number') {
+        
+            if (input.attr('text') == 'number') {
                 //VERIFICA SE DEVE SER PASSADO APENAS 2 CASAS DECIMAIS
                 if (input.attr('step') == '0.01') {
                     input.val(parseFloat(input.val()).toFixed(2));
@@ -214,12 +234,12 @@ $(document).ready(function() {
             input.val(input.val().trim());  //PREENCHE O INPUT COM SEU VALOR, MAS SEM OS ESPAÇOS INICIAIS E FINAIS
 
             if (input.val().length == 0) {
-                input.addClass('error').find('~ span.helper-text-input').html('* Obrigatório');
+                input.addClass('error');
                     
                 //REDIRECIONA PARA A TAB PRINCIPAL ONDE O CAMPO ESTA
                 if (!input.is(':visible')) {
                     let tab = $(this).closest('div[id]').prop('id');
-                    $('ul.tabs.main').tabs('select', tab);
+                    $('ul.tabs').tabs('select', tab);
                 }
 
                 prosseguir = false;
@@ -253,15 +273,8 @@ $(document).ready(function() {
                 textarea.removeClass('error');
             }
         });
-
-
-       /*  if (prosseguir && !button.hasClass('no-loading')) {
-            window.parent.showLoading(true); */
-        
+        window.parent.showLoading(false);
     });
-
-
-    /* window.parent.showLoading(false); */
 });
 
 
@@ -276,4 +289,7 @@ $(document).ready(function() {
         let checkbox = $(this).find('label.checkbox > input');
         checkbox.prop('checked', !checkbox.is(':checked'));
     });
+
+
+    window.parent.showLoading(false);
 });

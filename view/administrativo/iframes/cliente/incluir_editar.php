@@ -59,7 +59,7 @@ if ($_GET['trigger'] == 'edit') {
                     </div>
 
                     <div class="col s12 inputbox">
-                        <input type="text" name="email" class="browser-default" autocomplete="off" maxlength="200" <?php echo $_GET['trigger'] == 'edit' ? '' : 'required'; ?> value="<?php echo isset($listar['email']) ? $listar['email'] : ''; ?>">
+                        <input type="email" name="email" class="browser-default" autocomplete="off" maxlength="200" <?php echo $_GET['trigger'] == 'edit' ? '' : 'required'; ?> value="<?php echo isset($listar['email']) ? $listar['email'] : ''; ?>">
                         <label>E-mail</label>
                     </div>
                 </div>
@@ -90,7 +90,7 @@ if ($_GET['trigger'] == 'edit') {
                     <span class="titlebox">Feedback</span>
                     <label>
                         <input type="checkbox" name="checkbox-feedback" class="filled-in" <?php echo isset($listar['mostrar_feedback']) ? ($listar['mostrar_feedback'] == '1' ?  'checked=checked' : '') : ''; ?>>
-                        <span>Mostra no Portfólio ?</span>
+                        <span>Mostra no Site ?</span>
                     </label>
                     <textarea name="feedback" autocomplete="off" maxlength="2000" cols="80" rows="2000"><?php echo isset($listar['feedback']) ? $listar['feedback'] : ''; ?></textarea>
                 </div>

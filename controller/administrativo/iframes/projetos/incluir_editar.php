@@ -8,7 +8,7 @@ if($_POST['titulo'] && $_POST['row_id']){
 
     $action = $_POST['action'];
     $row_id = $_POST['row_id'];
-    
+
     $images = $_FILES['upload-imagem'];
 
     $raiz = '../../../../';
@@ -38,16 +38,23 @@ if($_POST['titulo'] && $_POST['row_id']){
             
             if(mkdir($diretorio, 0755)){
 
-                if(uploadIMG($images, $extensoes_permitidas ,$diretorio) && compactaZIP($diretorio)){                    
-
-                    $messageToast = "Projeto Cadastrado";
-                    $statusToast = 1;
-
+                if($images['size'][0] > 0){
+                    if(uploadIMG($images, $extensoes_permitidas ,$diretorio)){                    
+                        $messageToast = "Projeto Cadastrado";
+                        $statusToast = 1;
+    
+                    }
+                    else{
+    
+                        $messageToast = "Problema ao Carregar " . (count($images['name']) == 1 ? 'a imagem, verifique a extensão da imagem' : 'as Imagens , verifique as extensões das imagens.');
+                        $statusToast = 3;
+    
+                    }
                 }
                 else{
 
-                    $messageToast = "Problema ao Carregar " . (count($images['name']) == 1 ? 'a imagem, verifique a extensão da imagem' : 'as Imagens , verifique as extensões das imagens.');
-                    $statusToast = 3;
+                    $messageToast = "Projeto Cadastrado";
+                    $statusToast = 1;
 
                 }
             }
@@ -88,7 +95,7 @@ if($_POST['titulo'] && $_POST['row_id']){
 
                 $diretorio = "$raiz$pasta$action".'/';
                 
-                if(uploadIMG($images, $extensoes_permitidas ,$diretorio) && compactaZIP($diretorio)){
+                if(uploadIMG($images, $extensoes_permitidas ,$diretorio)){
     
                     $messageToast = "Projeto Atualizado";
                     $statusToast = 1;
@@ -123,6 +130,6 @@ else{
 
 }
 
-header("location:../../../../view/administrativo/iframes/projetos/controlador.php?messageToast=$messageToast&statusToast=$statusToast");
+ header("location:../../../../view/administrativo/iframes/projetos/controlador.php?messageToast=$messageToast&statusToast=$statusToast");
 
 ?>

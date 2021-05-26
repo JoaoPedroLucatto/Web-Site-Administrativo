@@ -177,3 +177,24 @@ div.checkbox-exibir > label{
 @media (max-width: 600px) {
 	div.textareabox > textarea{ height: 45px !important;}
 }
+
+
+
+/* INPUT ERROR */
+.error{
+	border-color: #ff4040 !important;
+	transition: 0.2s;
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+input.error ~ label{
+	color:  #ff4040 !important;
+	transition: 0.2s;
+}
+
+input.error ~ label::after{
+	color:  #ff4040 !important;
+	content: " * Obrigatório";
+	transition: 0.2s;
+}
