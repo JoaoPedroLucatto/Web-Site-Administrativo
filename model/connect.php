@@ -11,14 +11,14 @@
 
 
 
-    // $host = "localhost";
-    // $dbname = "projeto_fotografia";
-    // $username = "root";
-    // $password = "root";
     $host = "localhost";
-    $dbname = "foto";
-    $username = "will";
-    $password = "willroot";
+    $dbname = "projeto_fotografia";
+    $username = "root";
+    $password = "root";
+    // $host = "localhost";
+    // $dbname = "foto";
+    // $username = "will";
+    // $password = "willroot";
 
     $conn = mysqli_connect($host, $username, $password, $dbname);
 

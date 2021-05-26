@@ -5,7 +5,7 @@
 
 <div class="col s12 footer sector">
     <div class="col l12 m12 s12">
-    	<img src="images/logo.png" class="logotipo">
+    	<img src="<?php echo $logotipo; ?>" class="logotipo">
     </div>
 
 

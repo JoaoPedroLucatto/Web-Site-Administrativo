@@ -1,4 +1,11 @@
 
+
+<?php
+    $logotipo = 'images/' . ( file_exists("images/logo.png") ? 'logo.png' : 'logo_default.png' );
+?>
+
+
+
 <!-- CSS -->
 <link rel="stylesheet" href="style/css/administrativo/menu-lateral.css">
 
