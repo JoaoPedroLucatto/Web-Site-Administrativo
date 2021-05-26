@@ -123,8 +123,8 @@ function blockForm(blocked) {
 
 $(document).ready(function() {
 
-    $(document).on('beforeunload', function() {
-        window.parent.showLoading(true);
+    $(window).on('beforeunload', function() {
+        window.parent.showLoading(true); 
     });
      
     //AO TROCAR O VALOR DE UM CAMPO, FAZ REQUISIÇÃO REALTIME NO BANCO (APENAS INPUTS QUE PERMITEM A BUSCA)
@@ -273,8 +273,9 @@ $(document).ready(function() {
                 textarea.removeClass('error');
             }
         });
-        window.parent.showLoading(false);
     });
+
+    window.parent.showLoading(false);
 });
 
 
