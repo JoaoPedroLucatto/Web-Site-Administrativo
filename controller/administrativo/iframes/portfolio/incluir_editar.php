@@ -77,7 +77,7 @@
 
                 if($imagem['size'][0] > 0 || $link != 'null'){
 
-                    $sql = "INSERT INTO portfolio (titulo, subtitulo_1, subtitulo_2, tipo_registro, id_statusregistro, link_video, extensao_img) VALUES ('$titulo', '$subtitulo_1', '$subtitulo_2', $tipo_registro, $staturegistro, '$link', '$extesao_img')";
+                    $sql = "INSERT INTO portfolio (titulo, subtitulo_1, subtitulo_2, tipo_registro, id_statusregistro, link_video, extensao_img) VALUES ('$titulo', '$subtitulo_1', '$subtitulo_2', $tipo_registro, $staturegistro, '$link', '$extesao')";
                     $query = sqlQueries($conn, $sql, false);
     
                     if($query){

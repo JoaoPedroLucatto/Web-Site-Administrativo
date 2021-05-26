@@ -9,7 +9,7 @@
                 </div>
 
                 <div class="col s12 m10 l9 inputbox">
-                    <input type="text" class="browser-default" maxlength="100" autocomplete="off" name="titulo" require value="<?php echo empty($listar['titulo']) ? '' : $listar['titulo']; ?>">
+                    <input type="text" class="browser-default" maxlength="100" autocomplete="off" name="titulo" required value="<?php echo empty($listar['titulo']) ? '' : $listar['titulo']; ?>">
                     <label>Titulo</label>
                 </div> 
 

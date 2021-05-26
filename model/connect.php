@@ -11,14 +11,14 @@
 
 
 
-    $host = "localhost";
+    /* $host = "localhost";
     $dbname = "projeto_fotografia";
     $username = "root";
-    $password = "root";
-    // $host = "localhost";
-    // $dbname = "foto";
-    // $username = "will";
-    // $password = "willroot";
+    $password = "root"; */
+    $host = "localhost";
+    $dbname = "foto";
+    $username = "will";
+    $password = "willroot";
 
     $conn = mysqli_connect($host, $username, $password, $dbname);
 
@@ -71,23 +71,23 @@
         array_shift($scan_dir);
         array_shift($scan_dir);
 
-        $zip = new ZipArchive();
+        if(!is_null($scan_dir)){
+        
+            $zip = new ZipArchive();
 
-        if($zip->open($dir.$file_name, (ZipArchive::CREATE | ZipArchive::OVERWRITE))){
+            if($zip->open($dir.$file_name, (ZipArchive::CREATE | ZipArchive::OVERWRITE))){
 
-            foreach($scan_dir as $imagem){
+                foreach($scan_dir as $imagem){
 
-                $zip->addFile($dir.$imagem, $imagem);
-                $return = true;
+                    $zip->addFile($dir.$imagem, $imagem);
+
+
+                }
+
+                $zip->close();
 
             }
-
-            $zip->close();
-
-        }
-
-        return $return ? $return : false;
-        
+        }       
     } 
     
     
@@ -144,18 +144,28 @@
 
                 if(unlink("$dir$name_img")){
 
-                    move_uploaded_file($tmp_img, $dir.$name_img);
-                    $return = true;
-
+                    if(move_uploaded_file($tmp_img, $dir.$name_img)){
+                        $return = true;
+                    }
+                    else{
+                        $return = false;
+                    }
+                    
                 }
                 else{
 
-                    move_uploaded_file($tmp_img, $dir.$name_img);
-                    $return = true;
-
+                    if(move_uploaded_file($tmp_img, $dir.$name_img)){
+                        $return = true;
+                    }
+                    else{
+                        $return = false;
+                    }
+    
                 }
             }
         }
+
+        compactaZIP($dir);
 
         return $return;
     }

@@ -103,12 +103,12 @@ if ($_GET['trigger'] == 'edit') {
                 </div>
                 <div class="col s12 m6 l6 no-padding">
                     <div class="col s12 inputbox" id="link_video">
-                        <input type="text" name="link_video" class="browser-default" autocomplete="off" maxlength="100" value="<?php echo $listar['link_video'] ? $listar['link_video'] : ''; ?>">
+                        <input type="text" name="link_video" class="browser-default" required autocomplete="off" maxlength="100" value="<?php echo $listar['link_video'] ? $listar['link_video'] : ''; ?>">
                         <label>ID Vídeo <img class="tooltipped" data-position="top" data-tooltip="Informe somente o ID. Exemplo: https://www.youtube.com/watch?v=(ID) " src="../../../../images/icons/help_outline_black.png" width="13px" style="vertical-align: baseline;" > </label>
                     </div>
                     <div class="col s12 imagembox" id="upload_imagem">
                         <div class="imagem" id="teste">
-                            <img id="preview" class="img" <?php echo file_exists($dir_imagem) ? "src=$dir_imagem" : ''; ?>>
+                            <img id="preview" class="img" <?php echo file_exists($dir_imagem) ? "src=$dir_imagem" : 'src'; ?>>
                             <span class="textbox"><img src="../../../../images/icons/photo_camera_white.png">Inserir / Editar Foto</span>
                             <span class="removeimg"><img src="../../../../images/icons/close-white.png"></span>
                         </div>                        
@@ -190,6 +190,7 @@ if ($_GET['trigger'] == 'edit') {
             }
         });
 
+        //ALERTA PERMITIDO SOMENTE IMAGEM OU VIDEO
         $('input:file#upload').on('click', function() {
 
             if ($(this).prop('disabled')) {
@@ -198,5 +199,32 @@ if ($_GET['trigger'] == 'edit') {
 
             }
         });
+
+
+        //VERIFICA AS TAG IMG DO PORTIFOLIO E SLIDER (OBRIGATORIEDADE)
+        $('button.save-form').on('click', function(){ 
+            let tipo_registro =  $('select[name="tipo_registro"]').val();
+            let imgsrc = $('img#preview.img').attr('src');
+
+            if(tipo_registro == 1){
+
+                if(imgsrc == ""){
+                    window.parent.showToast('3','Tipo de Registro Slider é obrigatório uma imagem !');
+                    return false;
+                }
+
+            }
+            else{
+
+                let inputVideo = $('input[name=link_video]').val().trim();
+
+                if(inputVideo.length == 0 && imgsrc == ""){
+
+                    window.parent.showToast('3', 'É Obrigatório um vídeo ou imagem !');
+                    return false;
+
+                }
+            }
+        });      
     });
 </script>

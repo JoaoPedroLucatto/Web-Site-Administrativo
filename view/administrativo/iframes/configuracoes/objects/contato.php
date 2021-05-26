@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col s12 no-padding">
         <div class="col s12 inputbox">
-            <input type="email" name="email_contato" class="browser-default" autocomplete="off" maxlength="200" value="<?php echo $listar['email'] ? $listar['email'] : ''; ?>">
+            <input type="email" name="email_contato" class="browser-default" required autocomplete="off" maxlength="200" value="<?php echo $listar['email'] ? $listar['email'] : ''; ?>">
             <label>Email</label>            
         </div>
         <div class="col s8 m8 l10 inputbox">
