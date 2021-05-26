@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.23, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
 --
--- Host: localhost    Database: foto
+-- Host: 127.0.0.1    Database: projeto_fotografia
 -- ------------------------------------------------------
--- Server version	8.0.23
+-- Server version	8.0.22
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -31,8 +31,9 @@ CREATE TABLE `clientes` (
   `feedback` varchar(2000) DEFAULT NULL,
   `mostrar_feedback` tinyint(1) DEFAULT NULL,
   `id_statusregistro` int DEFAULT NULL,
+  `alteracoes_feedback` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +42,6 @@ CREATE TABLE `clientes` (
 
 LOCK TABLES `clientes` WRITE;
 /*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
-INSERT INTO `clientes` VALUES (1,'João Pedro A Lucatto','teste@teste.com.br','admin','123','teste',1,3),(2,'REGINALDO SAVIAN','teste@gordo.com.br','admin2','123','teste2',0,1),(3,'TESTE','teste@teste.com.br','TESTE','$2y$10$iLu25jQUVKXf0dRfVfEbb./oUdMeEtQlyvCmVSLb0xj7UP8pyNQEi','teste',1,3),(4,'JOAO PEDRO','exemplo','JOAO','$2y$10$EtN.eeYS3.v7LxbCjXkPYOD3usbW2ctyVKmheJKMSt6NJwwnmhd1m','Aqui ficará todos os texto, que aparecerá na aba portfólio....... João Pedro, Avô, avó.....@#$%¨&*()',1,3),(5,'TESTE','testeee@teste.com.br','TESTE','$2y$10$LJjV9a80ZjQQDrbnq2jpKed5zGqar79Z50ztOcvFTI/EhedrewU8y','Top de mais!!!!',1,1);
 /*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -67,8 +67,9 @@ CREATE TABLE `configuracoes` (
   `facebook` varchar(200) DEFAULT NULL,
   `instagram` varchar(200) DEFAULT NULL,
   `linkedin` varchar(200) DEFAULT NULL,
+  `nome_empresa` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -77,6 +78,7 @@ CREATE TABLE `configuracoes` (
 
 LOCK TABLES `configuracoes` WRITE;
 /*!40000 ALTER TABLE `configuracoes` DISABLE KEYS */;
+INSERT INTO `configuracoes` VALUES (1,'jw4YBbKWODM','Nome do Sobre','Texto do Sobre','(99) 99999-9999','contato@email.com','Rua Principal','999','Centro','São Paulo','(99) 99999-9999','Link Facebook','Link Instagram','Link Linkedin','Nome Empreendimento');
 /*!40000 ALTER TABLE `configuracoes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -96,8 +98,10 @@ CREATE TABLE `portfolio` (
   `cor_texto` tinyint(1) DEFAULT NULL,
   `posicao_texto` varchar(10) DEFAULT NULL,
   `id_statusregistro` int DEFAULT NULL,
+  `link_video` varchar(1000) DEFAULT NULL,
+  `extensao_img` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -123,7 +127,7 @@ CREATE TABLE `projetos` (
   `datahorainclusao` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `id_statusregistro` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -147,7 +151,7 @@ CREATE TABLE `projetos_clientes` (
   `id_projeto` int DEFAULT NULL,
   `id_cliente` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -206,7 +210,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'João Pedro A Lucatto','admin','1234',1),(2,'Reginaldo Savian','admin2','1234',1),(3,'TESTE','TESTE','$2y$10$bY/GkO8dKrd/LMzAkQMVGuMDKZIJ2MzMKobOShQxF.ZdSeGGsx.Wm',3),(4,'TESTE','TESTE',NULL,3),(5,'WILL','WILLL','$2y$10$4pJQzrNqDyVuyd61KtI.buqIHcQhfwc0z3FjmOiaysb2ESGkAvvDa',3),(6,'ADMIN4444','ADMIN','$2y$10$h0OwApHwqGUun4lWMJkz.OY93aGhH0l6wbRvIH3xeTOPwJtmj2rT2',3),(7,'TESTE','TESTE','$2y$10$LjBjzs0hHUjyI.KJPt1Z0.ikNMbLk8jPq7.pykKI4PgNRW4WfsJpG',3),(8,'TESTE','TESTE','$2y$10$.ojN8kx320cYKHBYnGLWtOWJWpCi15/MojBKrhUYM7gMKKGFihY1K',3),(9,'TESTE','TESTE','$2y$10$D8rhn/yqWrtR/4NrENclt.R87oLb3DmwA3tWLMn8JaS82bWZB/Vby',3),(10,'TESTE','TESTE','$2y$10$OrDxpB5fVcrl1zD.hw97U.YCpG.tgVbd9pVDRzB1TTrgFWaKWIu9m',3),(11,'TESTE','TESTE','$2y$10$CRKjvJu7t65o1Q9V5OJqOeUel4jyUa6X1hJJyEz84rxFdzgYnXopa',3),(12,'TESTE','TESTE','$2y$10$VY2qkDXRI17uJ7si4T2xROkXkYhA7b0AC9LUp7DXBfIDO.yHNLlfu',3),(13,'TESTE','TESTE','$2y$10$br0JyhmZQTwceIDscwBmc.6LQXEDNUyyibT12X5q7H87OnNtecjfi',3),(14,'TESTE','TESTE','$2y$10$q6VQcBWI/96E1JYGX1zfSOrnoyzFN7m07mW2vxbK6aO/9UKgiYCM2',3),(15,'TESTE','TESTE','$2y$10$QEcecnq2RkO0Wm9.AUcJ8.8AhIhVHal1kGKYlzOxsJ7nDO5.gQcJ2',3),(16,'TESTE','TESTE','$2y$10$xoBjQ1LkP58HSJH7s2/Yy.BcVfM10kKiNkXkZijpxODKgb0g9owcW',3),(17,'TESTE','TESTE','$2y$10$1eO5ywWWdRqEuh9W/0N1Pe37DJDLco.AihCPuYInH3cKA4RB/H2Gm',3),(18,'TESTE','TESTE','$2y$10$4Ydagk/pILUD28l2v.bTfONGNAbQZyah5NAMnVkv.Q7YJmX7HJm2y',3),(19,'TESTE','TESTE','$2y$10$TkkegSWAezggeNmGFUmTBuWuFvx5kmeI4keyq85vHgMxibIfN0ARW',3),(20,'TESTE','TESTE','$2y$10$fQ.FM8HHU7Fc02Zqis1AheA1LcEUlrraeRO1NfF6E.Fxil8olAb0i',3),(21,'TESTE','TESTE','$2y$10$bPaQIFFY67/zL19ctrlOL.bZREeGVwIi5csJXZrngTnShwrWo7Yie',3),(22,'TESTE','TESTE','$2y$10$EBC0P.8.jdJJQmYQQkyqkekM9/zScik7r8S2aJQ1iLxO1fA//sdW2',3),(23,'TESTE','TESTE','$2y$10$qb6C6zi640HgkEjbF78zdOlMZ1bAFd.rOggpRlVWgYdNGxvisEvIm',3),(24,'TESTE','TESTE','$2y$10$Qdex3cum2a/LBoI.dFEflumky8EKODihJR6es6R5O6CWkukQ.DWgm',3),(25,'TESTE','TESTE','$2y$10$nNKX63H8PAiLqsqh5f.QVeYY3cnjsejlCxQhxE3JZsd13KyqPWL5u',3),(26,'TESTE','TESTE','$2y$10$DaQ6n1H8MR7dXr3KMeq0VOMWu2z9Y8MIiPTamX9nuGbNr6YS3OQcC',3),(27,'TESTE','TESTE','$2y$10$gBh1m2qeN86NyrIdZZ1BMuNcWaqqrZpv8XaCxcfH/gjZd7c/jbpia',3),(28,'TESTE','TESTE','$2y$10$BWNXxri6IUQHIhIZFBdSSOX.AvQzah3n9gUTn5fq7Qz0aAqUW4baa',3),(29,'TESTE','TESTE','$2y$10$arl2q/klXJxpiYx5hWt.merrTLn28GvHs.5pouBr06RDAyYx8kdF2',1);
+INSERT INTO `usuarios` VALUES (1,'ADMINISTRADOR','ADMIN','$2y$10$dDAldczWzu.US1kG9riY0.0LOrrl678CnruZHpyrtjhoUlpvWXNYS',1);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -227,7 +231,7 @@ CREATE TABLE `website_contato` (
   `data` date DEFAULT NULL,
   `observacoes` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -238,14 +242,6 @@ LOCK TABLES `website_contato` WRITE;
 /*!40000 ALTER TABLE `website_contato` DISABLE KEYS */;
 /*!40000 ALTER TABLE `website_contato` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping events for database 'foto'
---
-
---
--- Dumping routines for database 'foto'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -256,4 +252,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-03-08 21:20:34
+-- Dump completed on 2021-05-18 18:01:32
