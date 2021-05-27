@@ -11,14 +11,22 @@
 
 
 
-    /* $host = "localhost";
-    $dbname = "projeto_fotografia";
-    $username = "root";
-    $password = "root"; */
-    $host = "localhost";
-    $dbname = "foto";
-    $username = "will";
-    $password = "willroot";
+    if (preg_match('/xampp/', $_SERVER['DOCUMENT_ROOT']) == true) {
+        $host = "localhost";
+        $dbname = "foto";
+        $username = "will";
+        $password = "willroot";
+    }
+
+    else if (preg_match('/Apache24/', $_SERVER['DOCUMENT_ROOT']) == true) {
+        $host = "localhost";
+        $dbname = "projeto_fotografia";
+        $username = "root";
+        $password = "root";
+    }
+
+
+
 
     $conn = mysqli_connect($host, $username, $password, $dbname);
 
