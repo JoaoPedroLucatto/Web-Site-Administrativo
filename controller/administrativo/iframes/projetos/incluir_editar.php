@@ -13,7 +13,9 @@ if($_POST['titulo'] && $_POST['row_id']){
 
     $raiz = '../../../../';
     $pasta = 'uploads/projetos/';
-    
+
+    $qtdeFotos = $_POST['qtdeSelecFotos'];
+
     $extensoes_permitidas = array('jpg', 'jpeg', 'png');
 
     $titulo = strtoupper(removeAccent($_POST['titulo']));
@@ -23,7 +25,7 @@ if($_POST['titulo'] && $_POST['row_id']){
     /* NOVO PROJETO */
     if($action == 'new'){
 
-        $sql = "INSERT INTO projetos (titulo, descricao, datahorainclusao, id_statusregistro) VALUES ('$titulo', '$descricao', now(), $status);";
+        $sql = "INSERT INTO projetos (titulo, descricao, datahorainclusao, id_statusregistro, qtdefotos) VALUES ('$titulo', '$descricao', now(), $status, $qtdeFotos);";
         $query = sqlQueries($conn, $sql, false);
 
         if($query){
@@ -32,8 +34,13 @@ if($_POST['titulo'] && $_POST['row_id']){
             $diretorio = "$raiz$pasta$ultimo_id".'/';
 
             foreach ($_POST['row_id'] as $id) {
-                $sql = "INSERT INTO projetos_clientes (id_projeto, id_cliente) VALUES ($ultimo_id, $id);";
+
+                $permiteSelecionar = isset($_POST['permiteSelecionar'][$id]) ? '1' : '0';
+                $permiteDownload = isset($_POST['permiteDownload'][$id]) ? '1' : '0';
+
+                $sql = "INSERT INTO projetos_clientes (id_projeto, id_cliente, permite_selecionar, permite_download) VALUES ($ultimo_id, $id, '$permiteSelecionar', '$permiteDownload');";
                 $query = sqlQueries($conn, $sql, false);
+
             }
             
             if(mkdir($diretorio, 0755)){
@@ -75,7 +82,7 @@ if($_POST['titulo'] && $_POST['row_id']){
     /* EDITAR UM PROJETO */
     else{
 
-        $sql = "UPDATE projetos SET titulo = '$titulo', descricao = '$descricao', id_statusregistro = $status WHERE id = $action";
+        $sql = "UPDATE projetos SET titulo = '$titulo', descricao = '$descricao', id_statusregistro = $status, qtdefotos = $qtdeFotos WHERE id = $action";
         $query_projeto = sqlQueries($conn, $sql, false);
 
         $sql = "DELETE FROM projetos_clientes WHERE id_projeto = '$action'";
@@ -84,9 +91,15 @@ if($_POST['titulo'] && $_POST['row_id']){
         if($query_delete && $query_projeto){
 
             foreach($row_id as $id){
-
-                $sql = "INSERT INTO projetos_clientes (id_projeto, id_cliente) VALUES ($action, $id);";
+                
+                $permiteSelecionar = isset($_POST['permiteSelecionar'][$id]) ? '1' : '0';
+                $permiteDownload = isset($_POST['permiteDownload'][$id]) ? '1' : '0';
+        
+                $sql = "INSERT INTO projetos_clientes (id_projeto, id_cliente, permite_selecionar, permite_download) VALUES ($action, $id, '$permiteSelecionar', '$permiteDownload');";
                 $query = sqlQueries($conn, $sql, false);
+                if($query){
+                    print_r('Insert com sucesso');
+                }
     
             }
 

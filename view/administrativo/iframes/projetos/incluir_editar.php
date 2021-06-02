@@ -16,7 +16,7 @@ if ($_GET['trigger'] == 'edit') {
     $sql = "SELECT * FROM projetos p WHERE id=". $_GET['row_id'][0];
     $listar = sqlQueries($conn, $sql, true)[0];
 
-    $sql = "SELECT clients.id, clients.nome_completo, clients.login, statu.descricao FROM clientes clients INNER JOIN projetos_clientes pro ON clients.id = pro.id_cliente LEFT JOIN status_registros statu ON clients.id_statusregistro = statu.id WHERE pro.id_projeto =" . $_GET['row_id'][0];
+    $sql = "SELECT clients.id, clients.nome_completo, clients.login, statu.descricao, pro.id_cliente, pro.permite_selecionar, pro.permite_download FROM clientes clients INNER JOIN projetos_clientes pro ON clients.id = pro.id_cliente LEFT JOIN status_registros statu ON clients.id_statusregistro = statu.id WHERE pro.id_projeto =" . $_GET['row_id'][0];
     $listar_clientes_projeto = sqlQueries($conn, $sql, true);
 
 

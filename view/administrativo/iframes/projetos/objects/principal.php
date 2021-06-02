@@ -8,12 +8,12 @@
                     <label>ID</label>
                 </div>
 
-                <div class="col s12 m10 l9 inputbox">
+                <div class="col s12 inputbox">
                     <input type="text" class="browser-default" maxlength="100" autocomplete="off" name="titulo" required value="<?php echo empty($listar['titulo']) ? '' : $listar['titulo']; ?>">
                     <label>Titulo</label>
                 </div> 
 
-                <div class="col s8 m5 l3 selectbox">
+                <div class="col s12 m6 l3 selectbox">
                     <label>Status Registro</label>
                     <select class="browser-default" name="statusregistro">
                         <?php
@@ -37,7 +37,12 @@
                     </select>
                 </div>
 
-                <div class="col s12 m6 l4 offset-l1 offset-m1 upload-arquivo">
+                <div class="col s12 m6 l3 inputbox">
+                    <input type="number" class="browser-default" maxlength="100" autocomplete="off" name="qtdeSelecFotos" value="<?php echo empty($listar['qtdefotos']) ? $listar['qtdefotos'] : $listar['qtdefotos']?>">                        
+                    <label>Quantidade De Fotos <img src="../../../../images/icons/help_outline_black.png" style="height: 13px; vertical-align: baseline;" class="tooltipped" data-position="right" data-tooltip="Informe quantas Foto o Cliente pode selecionar! Caso não informar será permitido selecionar todas."></label>
+                </div>
+
+                <div class="col s12 m12 l4 offset-l1 offset-m1 upload-arquivo">
                     <label for="arquivo"><img src="../../../../images/icons/file-upload-white.png">Upload</label>
                     <input type="file" name="upload-imagem[]" id="arquivo" multiple="multiple" accept=".jpg, .jpeg, .png">
                     <span class="num-img"></span>
