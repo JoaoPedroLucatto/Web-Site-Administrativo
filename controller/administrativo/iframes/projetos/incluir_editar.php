@@ -14,7 +14,7 @@ if($_POST['titulo'] && $_POST['row_id']){
     $raiz = '../../../../';
     $pasta = 'uploads/projetos/';
 
-    $qtdeFotos = $_POST['qtdeSelecFotos'];
+    $qtdeSelecFotos = $_POST['qtdeSelecFotos'];
 
     $extensoes_permitidas = array('jpg', 'jpeg', 'png');
 
@@ -25,7 +25,7 @@ if($_POST['titulo'] && $_POST['row_id']){
     /* NOVO PROJETO */
     if($action == 'new'){
 
-        $sql = "INSERT INTO projetos (titulo, descricao, datahorainclusao, id_statusregistro, qtdefotos) VALUES ('$titulo', '$descricao', now(), $status, $qtdeFotos);";
+        $sql = "INSERT INTO projetos (titulo, descricao, datahorainclusao, id_statusregistro, Qtdefotos_selecionar) VALUES ('$titulo', '$descricao', now(), $status, $qtdeSelecFotos);";
         $query = sqlQueries($conn, $sql, false);
 
         if($query){
@@ -82,7 +82,7 @@ if($_POST['titulo'] && $_POST['row_id']){
     /* EDITAR UM PROJETO */
     else{
 
-        $sql = "UPDATE projetos SET titulo = '$titulo', descricao = '$descricao', id_statusregistro = $status, qtdefotos = $qtdeFotos WHERE id = $action";
+        $sql = "UPDATE projetos SET titulo = '$titulo', descricao = '$descricao', id_statusregistro = $status, Qtdefotos_selecionar = $qtdeSelecFotos WHERE id = $action";
         $query_projeto = sqlQueries($conn, $sql, false);
 
         $sql = "DELETE FROM projetos_clientes WHERE id_projeto = '$action'";
