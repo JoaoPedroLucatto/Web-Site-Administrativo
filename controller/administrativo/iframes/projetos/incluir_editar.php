@@ -14,7 +14,7 @@ if($_POST['titulo'] && $_POST['row_id']){
     $raiz = '../../../../';
     $pasta = 'uploads/projetos/';
 
-    $qtdeSelecFotos = $_POST['qtdeSelecFotos'];
+    $qtdeSelecFotos = empty($_POST['qtdeSelecFotos']) ? 'null' : $_POST['qtdeSelecFotos'] ;
 
     $extensoes_permitidas = array('jpg', 'jpeg', 'png');
 

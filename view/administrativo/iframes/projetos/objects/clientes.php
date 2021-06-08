@@ -53,7 +53,7 @@
                                     }
                                 
                                 ?>>
-                                <span style="font-size: 15px;">Permite Download <img src="../../../../images/icons/help_outline_black.png" style="height: 13px;" class="tooltipped" data-position="right" data-tooltip="Quando selecionado, permite que o cliente realizar o download das fotos."></span>
+                                <span style="font-size: 15px;">Permite Download <img src="../../../../images/icons/help_outline_black.png" style="height: 13px;" class="tooltipped" data-position="right" data-tooltip="Quando selecionado, permite que o cliente realize o download das fotos."></span>
                             </label>
                         </div>
 
