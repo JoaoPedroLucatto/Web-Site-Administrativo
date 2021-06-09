@@ -24,7 +24,7 @@
 	<div class="projetoslist">
 		<?php
 			$select = "SELECT 
-						proj.id, proj.titulo, proj.descricao
+						proj.id, proj.titulo, proj.descricao, projclient.permite_selecionar, projclient.permite_download
 						FROM projetos proj
 						LEFT JOIN projetos_clientes projclient
 							ON projclient.id_projeto = proj.id
@@ -39,7 +39,7 @@
 			if (count($projetos_array) > 0) {
 				foreach ($projetos_array as $projeto) {
 		?>
-					<div class="item" data-projetoid='<?php echo $projeto['id']; ?>'>
+					<div class="item" data-projetoid='<?php echo $projeto['id']; ?>' data-permiteselecionar='<?php echo $projeto['permite_selecionar']; ?>' data-permitedownload='<?php echo $projeto['permite_download']; ?>'>
 						<span class="title truncate">
 							<img src="images/icons/folder-black.png">
 							<?php echo ucwords(strtolower($projeto['titulo'])); ?>
@@ -82,6 +82,12 @@
             </div>
 
             <div class="col s12 no-padding-horizontal fotoslist"> </div>
+
+            <div class="col s12"> <!-- ESPAÇAMENTO --> </div>
+
+            <div class="col s12 no-padding-horizontal no-padding-bottom center">
+            	<span class="show-more"> Mostrar Mais </span>
+            </div>
         </div>
     </div>
 </div>
@@ -92,11 +98,12 @@
 
 	<img src="#" class="picture">
 
-	<div class="tools">
-		<img src="images/icons/arrowleft-white.png" data-action='prev' class="left">
+	<div class="tools valign-wrapper">
+		<img src="images/icons/arrowleft-white.png" data-action='prev' class="prev">
 
+		<span class='selecionar-imagem'> </span>
 		<a href="#" download data-action='download'> <img src="images/icons/download-white.png"> </a>
 
-		<img src="images/icons/arrowright-white.png" data-action='next' class="right">
+		<img src="images/icons/arrowright-white.png" data-action='next' class="next">
 	</div>
 </div>

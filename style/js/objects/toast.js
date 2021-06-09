@@ -6,81 +6,84 @@ let fixed_coordenate = {};
     fixed_coordenate[true] = 'bottom';
     fixed_coordenate[false] = 'top';
 
-
+const max_opened_toasts = 2;
 
 //MOSTRA O TOAST NA TELA
 function showToast(code, message, timer = 6000) {
-    if (typeof timer != 'number') {
-        timer = 6000;
-    }
 
-
-    let toast_id = $.now();
-    let icon = null;
-    let title = null;
-    let color = null;
-
-
-    if (code == 1) {
-        icon = 'check-white.png';
-        title = 'Sucesso';
-        color = 'green';
-    }
-
-    else if (code == 2) {
-        icon = 'close-white.png';
-        title = 'Erro';
-        color = 'red';
-    }
-
-    else if (code == 3) {
-        icon = 'priorityhigh-white.png';
-        title = 'Atenção';
-        color = 'amber';
-    }
-
-    else {
-        icon = 'signalwifi-error-white.png';
-        title = 'Falha de Comunicação';
-        color = 'grey';
-    }
-
-
-    let toast =     "<div class='customtoast " + color + "' data-customtoastid='" + toast_id + "'>";
-        toast +=        "<img src='images/icons/" + icon + "' class='icon'>";
-        toast +=        "<span class='text'>";
-        toast +=            "<span class='title'> " + title + " </span>";
-        toast +=            "<span class='message'> " + message + " </span>";
-        toast +=        "</span>";
-        toast +=    "</div>";
-
-
-    $('body').append(toast);
-    
-
-
-    //SELECIONA O TOAST CRIADO E SETA AS TRIGGERS
-    let this_toast = $('div.customtoast[data-customtoastid=' + toast_id + ']');
-
-
-    setTimeout(function() {
-        adjustToast(this_toast);
-        this_toast.addClass('entry');
-    }, 100);
-
-
-
-    setTimeout(function() {
-        if (this_toast.is(':visible')) {
-            closeToast(this_toast);
+    if (openedToasts() < max_opened_toasts) {
+        if (typeof timer != 'number') {
+            timer = 6000;
         }
-    }, timer);
+
+
+        let toast_id = $.now();
+        let icon = null;
+        let title = null;
+        let color = null;
+
+
+        if (code == 1) {
+            icon = 'check-white.png';
+            title = 'Sucesso';
+            color = 'green';
+        }
+
+        else if (code == 2) {
+            icon = 'close-white.png';
+            title = 'Erro';
+            color = 'red';
+        }
+
+        else if (code == 3) {
+            icon = 'priorityhigh-white.png';
+            title = 'Atenção';
+            color = 'amber';
+        }
+
+        else {
+            icon = 'signalwifi-error-white.png';
+            title = 'Falha de Comunicação';
+            color = 'grey';
+        }
+
+
+        let toast =     "<div class='customtoast " + color + "' data-customtoastid='" + toast_id + "'>";
+            toast +=        "<img src='images/icons/" + icon + "' class='icon'>";
+            toast +=        "<span class='text'>";
+            toast +=            "<span class='title'> " + title + " </span>";
+            toast +=            "<span class='message'> " + message + " </span>";
+            toast +=        "</span>";
+            toast +=    "</div>";
+
+
+        $('body').append(toast);
+        
+
+
+        //SELECIONA O TOAST CRIADO E SETA AS TRIGGERS
+        let this_toast = $('div.customtoast[data-customtoastid=' + toast_id + ']');
+
+
+        setTimeout(function() {
+            adjustToast(this_toast);
+            this_toast.addClass('entry');
+        }, 100);
 
 
 
-    this_toast.on('click', function() {
-        closeToast($(this));
-    });
+        setTimeout(function() {
+            if (this_toast.is(':visible')) {
+                closeToast(this_toast);
+            }
+        }, timer);
+
+
+
+        this_toast.on('click', function() {
+            closeToast($(this));
+        });
+    }
 }
 
 

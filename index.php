@@ -36,11 +36,14 @@
     <script src="style/js/objects/fields.js"></script>
     <script src="style/js/objects/loading.js"></script>
     <script src="style/js/objects/toast.js"></script>
+    <script src="style/js/jquery.lazy/jquery.lazy.min.js"></script>
 </head>
 
 <body>
     <?php
         include_once 'view/objects/loading.php';
+
+        $logotipo = 'images/' . ( file_exists("images/logo.png") ? 'logo.png' : 'logo_default.png' );
 
         $root_path = true;
         $script = 'view/website/portfolio/main.php';

@@ -43,7 +43,7 @@ if($_POST['titulo'] && $_POST['row_id']){
 
             }
             
-            if(mkdir($diretorio, 0755)){
+            if(mkdir($diretorio, 0755, true)){
 
                 if($images['size'][0] > 0){
                     if(uploadIMG($images, $extensoes_permitidas ,$diretorio)){                    
@@ -107,6 +107,10 @@ if($_POST['titulo'] && $_POST['row_id']){
             if($images['size'][0] > 0){
 
                 $diretorio = "$raiz$pasta$action".'/';
+
+                if (!is_dir($diretorio)) {
+                    mkdir($diretorio, 0755, true);
+                }
                 
                 if(uploadIMG($images, $extensoes_permitidas ,$diretorio)){
     

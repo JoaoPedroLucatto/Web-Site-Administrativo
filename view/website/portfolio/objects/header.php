@@ -1,10 +1,6 @@
 
 
 
-<?php
-	$logotipo = 'images/' . ( file_exists("images/logo.png") ? 'logo.png' : 'logo_default.png' );
-?>
-
 
 
 <link rel="stylesheet" type="text/css" href="style/css/website/objects/header.css">
