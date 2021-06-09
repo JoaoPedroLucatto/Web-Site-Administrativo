@@ -38,7 +38,7 @@
                 </div>
 
                 <div class="col s12 m6 l3 inputbox">
-                    <input type="number" class="browser-default" maxlength="100" autocomplete="off" name="qtdeSelecFotos" value="<?php echo empty($listar['qtdefotos']) ? $listar['qtdefotos'] : $listar['qtdefotos']?>">                        
+                    <input type="number" class="browser-default" maxlength="100" autocomplete="off" name="qtdeSelecFotos" value="<?php echo empty($listar['Qtdefotos_selecionar']) ? $listar['Qtdefotos_selecionar'] : $listar['Qtdefotos_selecionar']?>">                        
                     <label>Quantidade De Fotos <img src="../../../../images/icons/help_outline_black.png" style="height: 13px; vertical-align: baseline;" class="tooltipped" data-position="right" data-tooltip="Informe quantas Foto o Cliente pode selecionar! Caso não informar será permitido selecionar todas."></label>
                 </div>
 
