@@ -9,7 +9,7 @@ let modalprojetos_projetoatual_id = null;
 let modalprojetos_projetoatual_diretorio = null;
 let modalprojetos_projetoatual_contadorimagens = 0;
 
-let modalprojetos_projetoatual_fotosselecionadas_text = null;
+let modalprojetos_projetoatual_fotosselecionadas_array = null;
 let modalprojetos_projetoatual_quantidadeimagens_permiteselecionar = 0;
 let modalprojetos_projetoatual_quantidadeimagens_selecionadas = 0;
 
@@ -37,7 +37,7 @@ function initModalProjetos(json_object, callback) {
 	modalprojetos_projetoatual_id = json_object.id;
 	modalprojetos_projetoatual_contadorimagens = 0;
 	
-	modalprojetos_projetoatual_fotosselecionadas_text = json_object.fotos_selecionadas;
+	modalprojetos_projetoatual_fotosselecionadas_array = json_object.fotos_selecionadas;
 	modalprojetos_projetoatual_quantidadeimagens_permiteselecionar = json_object.quantidade_fotos_selecionar;
 	modalprojetos_projetoatual_quantidadeimagens_selecionadas = json_object.quantidade_fotos_selecionadas;
 
@@ -108,7 +108,7 @@ function gerarListaFotos(json_object, clear_fotoslist = false, callback = null) 
 			html +=		"<img src='" + caminho_imagem + "' class='lazy-picture picture'>";
 
 		if (modalprojetos_projetoatual_permitedownload || modalprojetos_projetoatual_permiteselecionar) {
-			let selecionada = modalprojetos_projetoatual_fotosselecionadas_text && modalprojetos_projetoatual_fotosselecionadas_text.indexOf(`</>${imagem.arquivo}</>`) > -1 ? 'selected' : '';
+			let selecionada = modalprojetos_projetoatual_fotosselecionadas_array && modalprojetos_projetoatual_fotosselecionadas_array.indexOf(imagem.arquivo) > -1 ? 'selected' : '';
 
 			html +=		"<div class='tools'>";
 			html +=			modalprojetos_projetoatual_permiteselecionar ? `<span class='selecionar-imagem ${selecionada}'> </span>` : '';
@@ -226,21 +226,21 @@ function buscarMaisFotos(callback = null) {
 
 
 function salvarFotosSelecionadas() {
-	let fotosselecionadas_text = '';
+	let fotosselecionadas_json = [];
 
 	$('div.my-modal[data-modal=projeto] div.content div.fotoslist div.item').each(function() {
 		let element = $(this);
 		let foto_selecionada = element.find('span.selecionar-imagem').hasClass('selected');
 		
 		if (foto_selecionada) {
-			fotosselecionadas_text += `</>${element.attr('data-imagem')}</>`;
+			fotosselecionadas_json.push(element.attr('data-imagem'));
 		}
 	});
 
 
 	let form_data = new FormData();
         form_data.append('projeto_id', modalprojetos_projetoatual_id);
-        form_data.append('fotos_selecionadas', fotosselecionadas_text);
+        form_data.append('fotos_selecionadas', JSON.stringify(fotosselecionadas_json));
 
 	$.ajax({
         url: 'controller/website/area_cliente/salvar_fotos_selecionadas.php',

@@ -29,7 +29,7 @@
 
 
             echo "<li {$li_properties}>
-                    <img src='$imagem_url'>
+                    <img src='$imagem_url' class='lazy-picture'>
                 
                     <div class='caption {$posicao_texto}'>
                         <h3 class='{$cor_texto}'> {$slider['titulo']} </h3>

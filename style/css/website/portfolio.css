@@ -26,6 +26,15 @@ div.portfoliolist > div.item {
 }
 
 
+div.portfoliolist > div.item > img.picture {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+
 div.portfoliolist > div.item:hover {
 	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
 	transition: 0.2s;

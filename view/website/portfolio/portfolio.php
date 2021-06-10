@@ -32,9 +32,22 @@
                 }
 
                 else {
-                    $imagem_url = "uploads/website/portfolio_{$portfolio['id']}.{$portfolio['extensao_img']}";
+                    $imagem_url = "uploads/website/portfolio_{$portfolio['id']}";
+                    
+                    if (!empty($portfolio['extensao_img'])) {
+                        $imagem_url .= ".{$portfolio['extensao_img']}";
+                    } else {
+                        if (file_exists("$imagem_url.jpg")) {
+                            $imagem_url .= ".jpg";
+                        } else if (file_exists("$imagem_url.jpeg")) {
+                            $imagem_url .= ".jpeg";
+                        } else {
+                            $imagem_url .= ".png";
+                        }
+                    }
 
-                    $html_item = "<div class='item hide' style='background-image: url({$imagem_url});'>
+                    $html_item = "<div class='item hide'>
+                                    <img src='{$imagem_url}' class='picture lazy-picture'>
                                     <div class='informations'>
                                         <span class='title'> {$portfolio['titulo']} </span>
                                         <span class='subtitle'> {$portfolio['subtitulo_1']} </span>

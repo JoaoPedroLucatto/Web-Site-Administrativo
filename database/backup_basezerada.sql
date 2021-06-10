@@ -33,7 +33,7 @@ CREATE TABLE `clientes` (
   `id_statusregistro` int DEFAULT NULL,
   `alteracoes_feedback` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -126,8 +126,10 @@ CREATE TABLE `projetos` (
   `descricao` varchar(100) DEFAULT NULL,
   `datahorainclusao` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `id_statusregistro` int DEFAULT NULL,
+  `Qtdefotos_selecionar` int DEFAULT NULL,
+  `fotos_selecionadas` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -150,8 +152,10 @@ CREATE TABLE `projetos_clientes` (
   `id` int NOT NULL AUTO_INCREMENT,
   `id_projeto` int DEFAULT NULL,
   `id_cliente` int DEFAULT NULL,
+  `permite_selecionar` tinyint(1) DEFAULT NULL,
+  `permite_download` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -252,4 +256,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-18 18:01:32
+-- Dump completed on 2021-06-10 18:14:34
