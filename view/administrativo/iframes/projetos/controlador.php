@@ -9,6 +9,8 @@
 <link rel="stylesheet" href="../../../../style/css/administrativo/objects/sub-header.css">
 <link rel="stylesheet" href="../../../../style/css/administrativo/objects/upload.css">
 <link rel="stylesheet" href="../../../../style/css/administrativo/objects/tabs.css">
+<link rel="stylesheet" href="../../../../style/css/website/objects/modal.css">
+<link rel="stylesheet" href="../../../../style/css/administrativo/iframes/projetos/list-photo-selected.css">
 
 
 <!-- JAVASCRIPT -->
@@ -21,7 +23,8 @@
 <script type="text/javascripr" src="../../../../style/js/objects/loading.js"></script>
 <script type="text/javascript" src="../../../../style/js/administrativo/iframes/iframe.js"></script>
 <script type="text/javascript" src="../../../../style/js/administrativo/iframes/projetos/buscaContribuinte.js"></script>
-
+<script type="text/javascript" src="../../../../style/js/website/objects/modal.js"></script>
+<script type="text/javascript" src="../../../../style/js/administrativo/iframes/projetos/photos.js"></script>
 
 <?php
 

@@ -21,6 +21,7 @@ if ($_GET['trigger'] == 'edit') {
 
 
     $action = $listar['id'];
+    $caminho_projeto= "../../../../uploads/projetos/".$action.'/';
 
 }
 ?>
@@ -38,9 +39,11 @@ if ($_GET['trigger'] == 'edit') {
         <ul class="tabs">
             <li class="tab"><a href="#principal">Principal</a></li>
             <li class="tab"><a href="#clientes">Clientes</a></li>
+            <li class="tab"><a href="#foto-selecionadas">Fotos - Selecionadas</a></li>
         </ul>
         <div id="principal"><?php include_once 'objects/principal.php';?></div>
         <div id="clientes" class="col s12"><?php include_once 'objects/clientes.php'?></div>
+        <div id="foto-selecionadas" class="col s12"><?php include_once 'objects/foto-selecionadas.php'?></div>
     </div>
 
     <div class="iframe-footer">

@@ -1,0 +1,25 @@
+div.list-photos{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+div.photos-item{
+    display: contents;
+}
+
+
+div.list-photos > div.photos-item > img{
+    position: relative;
+    width: calc(25% - 24px);
+    height: calc(20vw - 24px);
+    margin: 12px;
+    border-radius: 4px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 4px rgb(0 0 0 / 10%);
+    overflow: hidden;
+    transition: 0.2s;
+}

@@ -14,7 +14,16 @@ $(document).ready(function() {
     
     /* TABS */
     $('.tabs').tabs();
+
+
+
+    /* TOOLTIPPED */
     $('.tooltipped').tooltip();
+
+
+
+    /* MODAL */
+    $('.modal').modal();
 
 
 
