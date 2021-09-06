@@ -18,8 +18,8 @@
         <a class="btn-floating pulse"><img src="images/icons/sort-white.png" alt=""></a>
     </div>
     <div class="menu">
-        <div class="logo">
-            <img class="circle responsive-img" <?php echo file_exists("images/logo.png") ? 'src="images/logo.png"' : 'src="images/logo_default.png"'?>>
+        <div class="logo-menu">
+            <img class="responsive-img" <?php echo file_exists("images/logo.png") ? 'src="images/logo.png"' : 'src="images/logo_default.png"'?>>
         </div>
 
         <div class="menu-principal" id="selected">

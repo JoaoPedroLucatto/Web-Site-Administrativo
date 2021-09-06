@@ -25,6 +25,8 @@
     $linkdin = $_POST['linkdin'];
 
     $extesao_conf = $_POST['conf_extensao'];
+    $extensao = pathinfo($imagem['name'][0], PATHINFO_EXTENSION);
+    $extensao_permitidas = array('png');
 
     $diretorio = '../../../../images/'; 
     $logo = "$diretorio".'logo.png';

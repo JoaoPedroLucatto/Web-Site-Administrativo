@@ -2,9 +2,10 @@
 <?php
     include_once 'model/connect.php';
 
-
     $select = "SELECT * FROM configuracoes LIMIT 1";
     $config_array = sqlQueries($conn, $select, true)[0];
+
+    
 ?>
 
 
@@ -41,24 +42,35 @@
 
 <body>
     <?php
-        include_once 'view/objects/loading.php';
-
-        $logotipo = 'images/' . ( file_exists("images/logo.png") ? 'logo.png' : 'logo_default.png' );
-
-        $root_path = true;
-        $script = 'view/website/portfolio/main.php';
-
-
-        if (isset($_SESSION['usuario_id'])) {
-            $script = 'view/administrativo/main.php';
-        }
-
-        else if (isset($_SESSION['cliente_id'])) {
-            $script = 'view/website/area_cliente/main.php';
-        }
         
+        if(strtotime(date('Y-m-d')) <= strtotime(base64_decode($config_array['chave_validade']))){
 
-        include_once $script;
+            include_once 'view/objects/loading.php';
+
+            $logotipo = 'images/' . ( file_exists("images/logo.png") ? 'logo.png' : 'logo_default.png' );
+
+            $root_path = true;
+            $script = 'view/website/portfolio/main.php';
+
+
+            if (isset($_SESSION['usuario_id'])) {
+                $script = 'view/administrativo/main.php';
+            }
+
+            else if (isset($_SESSION['cliente_id'])) {
+                $script = 'view/website/area_cliente/main.php';
+            }
+            
+
+            include_once $script;
+
+        }
+        else{
+            
+            echo "Chave de Validade Desatualizada. Contate do Suporte !";
+            
+        }
+
     ?>
 </body>
 </html>
